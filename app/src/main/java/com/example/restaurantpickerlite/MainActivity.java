@@ -2,6 +2,7 @@ package com.example.restaurantpickerlite;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -97,6 +98,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
 
             Toast.makeText(MainActivity.this, "selected radio button is: " + milesRadius, Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(MainActivity.this, DisplayRandomPick.class);
+            intent.putExtra("radius", milesRadius);
+            intent.putExtra("zipcode", edtZipCode.getText().toString());
+            intent.putExtra("opened", openedNow);
+            intent.putExtra("cuisines", cuisines);
+
+            startActivity(intent);
         });
     }
 
