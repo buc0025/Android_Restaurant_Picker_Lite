@@ -109,6 +109,102 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         });
     }
 
+    private void checkboxesClicked() {
+        chineseBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (chineseBox.isChecked()) {
+                    cuisines.add("chinese");
+                } else {
+                    cuisines.remove("chinese");
+                }
+            }
+        });
+
+        japaneseBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (japaneseBox.isChecked()) {
+                    cuisines.add("japanese");
+                } else {
+                    cuisines.remove("japanese");
+                }
+            }
+        });
+
+        italianBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (italianBox.isChecked()) {
+                    cuisines.add("italian");
+                } else {
+                    cuisines.remove("italian");
+                }
+            }
+        });
+
+        indianBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (indianBox.isChecked()) {
+                    cuisines.add("indian");
+                } else {
+                    cuisines.remove("indian");
+                }
+            }
+        });
+
+        vegetarianBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (vegetarianBox.isChecked()) {
+                    cuisines.add("vegetarian");
+                } else {
+                    cuisines.remove("vegetarian");
+                }
+            }
+        });
+
+        koreanBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (koreanBox.isChecked()) {
+                    cuisines.add("korean");
+                } else {
+                    cuisines.remove("korean");
+                }
+            }
+        });
+    }
+
+    private void clearButtonClicked() {
+        btnClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int numCheckboxes1 = linearLayout1.getChildCount();
+                int numCheckboxes2 = linearLayout2.getChildCount();
+                Toast.makeText(MainActivity.this, "clear button pressed" + numCheckboxes1, Toast.LENGTH_SHORT)
+                        .show();
+
+                for (int i = 0; i < numCheckboxes1; i++) {
+                    v = linearLayout1.getChildAt(i);
+                    if (v instanceof CheckBox) {
+                        ((CheckBox) v).setChecked(false);
+                    }
+                }
+
+                for (int i = 0; i < numCheckboxes2; i++) {
+                    v = linearLayout2.getChildAt(i);
+                    if (v instanceof CheckBox) {
+                        ((CheckBox) v).setChecked(false);
+                    }
+                }
+                cuisines.clear();
+                edtZipCode.getText().clear();
+            }
+        });
+    }
+
     // for spinner
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
