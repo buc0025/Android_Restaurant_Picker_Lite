@@ -7,6 +7,17 @@
     tools:context=".DisplayRandomPick">
 
     <TextView
+        android:id="@+id/testUid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="32dp"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <TextView
         android:id="@+id/mainZipCode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

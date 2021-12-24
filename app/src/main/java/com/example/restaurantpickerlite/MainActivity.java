@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         requestQueue = Volley.newRequestQueue(this);
 
         btnApply.setEnabled(false);
+        checkboxesClicked();
 
         edtZipCode.addTextChangedListener(new TextWatcher() {
             @Override
@@ -107,6 +108,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
             startActivity(intent);
         });
+
+        clearButtonClicked();
     }
 
     private void checkboxesClicked() {
@@ -183,7 +186,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             public void onClick(View v) {
                 int numCheckboxes1 = linearLayout1.getChildCount();
                 int numCheckboxes2 = linearLayout2.getChildCount();
-                Toast.makeText(MainActivity.this, "clear button pressed" + numCheckboxes1, Toast.LENGTH_SHORT)
+                Toast.makeText(MainActivity.this, "clear button pressed", Toast.LENGTH_SHORT)
                         .show();
 
                 for (int i = 0; i < numCheckboxes1; i++) {
