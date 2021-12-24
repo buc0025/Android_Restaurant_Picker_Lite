@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -29,7 +30,7 @@ public class DisplayRandomPick extends AppCompatActivity {
     private RequestQueue requestQueue;
     private String zipcode, radius, opened;
     private ArrayList<String> cuisines;
-    private Button btnShow, btnDeletePrefs;
+    private Button btnShow, btnPickAgain;
 
 
     @Override
@@ -43,7 +44,7 @@ public class DisplayRandomPick extends AppCompatActivity {
         mainCuisine = findViewById(R.id.mainCuisine);
         mainOpened = findViewById(R.id.mainOpened);
         btnShow = findViewById(R.id.btnShow);
-        btnDeletePrefs = findViewById(R.id.btnDeletePrefs);
+        btnPickAgain = findViewById(R.id.btnPickAgain);
 
         requestQueue = Volley.newRequestQueue(this);
 
@@ -56,9 +57,14 @@ public class DisplayRandomPick extends AppCompatActivity {
         mainZipCode.setText(zipcode);
         mainMiles.setText(radius);
         mainOpened.setText(opened);
-        mainCuisine.setText(cuisines.get(0));
+//        mainCuisine.setText(cuisines.get(0));
 
         jsonParse();
+
+        btnPickAgain.setOnClickListener(v -> {
+            testUid.setText("");
+            jsonParse();
+        });
     }
 
     private void jsonParse() {
@@ -100,9 +106,18 @@ public class DisplayRandomPick extends AppCompatActivity {
                                 JSONObject entry = jsonArray.getJSONObject(n);
                                 String name = entry.getString("name");
 //                                String address = entry.getJSONArray("location").getString(0);
-                                String address = entry.getString("location");
+//                                String address = entry.getString("location");
+                                JSONObject a = entry.getJSONObject("location");
+                                String address = a.getString("address1");
+                                String city = a.getString("city");
+                                String state = a.getString("state");
+                                String zipcode = a.getString("zip_code");
+//                                int index = a.indexOf(":");
+//                                String address = a.substring(index);
+//                                JSONArray array = entry.getJSONArray("location");
+//                                String address = array.getString(0);
                                 String phone = entry.getString("display_phone");
-                                testUid.append(name + ": " + phone + "\n" + address + "\n");
+                                testUid.append(name + "\n" + phone + "\n" + address + "\n" + city + ", " + state + " " + zipcode);
 //                                testUid.append(name + ": "  + "\n\n");
 //                            }
                             }
