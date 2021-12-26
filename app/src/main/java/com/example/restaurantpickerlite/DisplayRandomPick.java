@@ -3,9 +3,12 @@ package com.example.restaurantpickerlite;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
@@ -20,6 +23,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -31,6 +37,7 @@ public class DisplayRandomPick extends AppCompatActivity {
     private String zipcode, radius, opened;
     private ArrayList<String> cuisines;
     private Button btnShow, btnPickAgain;
+    private ImageView imageView;
 
 
     @Override
@@ -45,6 +52,22 @@ public class DisplayRandomPick extends AppCompatActivity {
         mainOpened = findViewById(R.id.mainOpened);
         btnShow = findViewById(R.id.btnShow);
         btnPickAgain = findViewById(R.id.btnPickAgain);
+        imageView = findViewById(R.id.imageView);
+
+        URL url = null;
+        try {
+            url = new URL("https://s3-media2.fl.yelpcdn.com/bphoto/KyELb2OMVcIVwXZA0QgWLw/o.jpg");
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        Bitmap bmp = null;
+        try {
+            bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+            imageView.setImageBitmap(bmp);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
         requestQueue = Volley.newRequestQueue(this);
 
@@ -105,20 +128,13 @@ public class DisplayRandomPick extends AppCompatActivity {
 //                            for (int i = 0; i < 5; i++) {
                                 JSONObject entry = jsonArray.getJSONObject(n);
                                 String name = entry.getString("name");
-//                                String address = entry.getJSONArray("location").getString(0);
-//                                String address = entry.getString("location");
-                                JSONObject a = entry.getJSONObject("location");
-                                String address = a.getString("address1");
-                                String city = a.getString("city");
-                                String state = a.getString("state");
-                                String zipcode = a.getString("zip_code");
-//                                int index = a.indexOf(":");
-//                                String address = a.substring(index);
-//                                JSONArray array = entry.getJSONArray("location");
-//                                String address = array.getString(0);
+                                JSONObject location = entry.getJSONObject("location");
+                                String address = location.getString("address1");
+                                String city = location.getString("city");
+                                String state = location.getString("state");
+                                String zipcode = location.getString("zip_code");
                                 String phone = entry.getString("display_phone");
                                 testUid.append(name + "\n" + phone + "\n" + address + "\n" + city + ", " + state + " " + zipcode);
-//                                testUid.append(name + ": "  + "\n\n");
 //                            }
                             }
 
