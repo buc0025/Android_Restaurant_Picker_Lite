@@ -18,6 +18,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -54,19 +55,22 @@ public class DisplayRandomPick extends AppCompatActivity {
         btnPickAgain = findViewById(R.id.btnPickAgain);
         imageView = findViewById(R.id.imageView);
 
-        URL url = null;
-        try {
-            url = new URL("https://s3-media2.fl.yelpcdn.com/bphoto/KyELb2OMVcIVwXZA0QgWLw/o.jpg");
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        Bitmap bmp = null;
-        try {
-            bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-            imageView.setImageBitmap(bmp);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        String url = "https://s3-media2.fl.yelpcdn.com/bphoto/KyELb2OMVcIVwXZA0QgWLw/o.jpg";
+        Picasso.get().load(url).into(imageView);
+
+//        URL url = null;
+//        try {
+//            url = new URL("https://s3-media2.fl.yelpcdn.com/bphoto/KyELb2OMVcIVwXZA0QgWLw/o.jpg");
+//        } catch (MalformedURLException e) {
+//            e.printStackTrace();
+//        }
+//        Bitmap bmp = null;
+//        try {
+//            bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+//            imageView.setImageBitmap(bmp);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
 
         requestQueue = Volley.newRequestQueue(this);
