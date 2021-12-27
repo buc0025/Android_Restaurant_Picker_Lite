@@ -5,10 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -31,11 +31,10 @@ import java.util.Random;
 public class DisplayRandomPick extends AppCompatActivity {
     private TextView testUid, mainZipCode, mainMiles, mainCuisine, mainOpened;
     private RequestQueue requestQueue;
-    private String zipcode, radius, opened;
+    private String zipcode, radius, opened, address;
     private ArrayList<String> cuisines;
     private Button btnShow, btnPickAgain;
     private ImageView imageView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +49,7 @@ public class DisplayRandomPick extends AppCompatActivity {
         btnShow = findViewById(R.id.btnShow);
         btnPickAgain = findViewById(R.id.btnPickAgain);
         imageView = findViewById(R.id.imageView);
+        address = "";
 
 //        String url = "https://s3-media2.fl.yelpcdn.com/bphoto/KyELb2OMVcIVwXZA0QgWLw/o.jpg";
 //        Picasso.get().load(url).into(imageView);
@@ -71,12 +71,13 @@ public class DisplayRandomPick extends AppCompatActivity {
 
         btnShow.setOnClickListener(v -> {
             Intent maps = new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("google.navigation:q=42.26642333,-71.020908&mode=d"));
+                    Uri.parse("google.navigation:q=" + address));
             maps.setPackage("com.google.android.apps.maps");
 
             if (maps.resolveActivity(getPackageManager()) != null) {
                 startActivity(maps);
             }
+            Toast.makeText(this, address, Toast.LENGTH_LONG).show();
 
         });
 
@@ -133,6 +134,9 @@ public class DisplayRandomPick extends AppCompatActivity {
                                 String state = location.getString("state");
                                 String zipcode = location.getString("zip_code");
                                 String phone = entry.getString("display_phone");
+
+                                DisplayRandomPick.this.address = address + ", " + city + " " + state;
+
                                 testUid.append(name + "\n" + phone + "\n" + address + "\n" + city + ", " + state + " " + zipcode);
 
                                 Picasso.get()
