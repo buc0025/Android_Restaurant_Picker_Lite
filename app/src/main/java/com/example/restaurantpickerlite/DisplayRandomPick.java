@@ -3,10 +3,7 @@ package com.example.restaurantpickerlite;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,9 +21,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -55,23 +49,8 @@ public class DisplayRandomPick extends AppCompatActivity {
         btnPickAgain = findViewById(R.id.btnPickAgain);
         imageView = findViewById(R.id.imageView);
 
-        String url = "https://s3-media2.fl.yelpcdn.com/bphoto/KyELb2OMVcIVwXZA0QgWLw/o.jpg";
-        Picasso.get().load(url).into(imageView);
-
-//        URL url = null;
-//        try {
-//            url = new URL("https://s3-media2.fl.yelpcdn.com/bphoto/KyELb2OMVcIVwXZA0QgWLw/o.jpg");
-//        } catch (MalformedURLException e) {
-//            e.printStackTrace();
-//        }
-//        Bitmap bmp = null;
-//        try {
-//            bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-//            imageView.setImageBitmap(bmp);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
+//        String url = "https://s3-media2.fl.yelpcdn.com/bphoto/KyELb2OMVcIVwXZA0QgWLw/o.jpg";
+//        Picasso.get().load(url).into(imageView);
 
         requestQueue = Volley.newRequestQueue(this);
 
@@ -132,6 +111,9 @@ public class DisplayRandomPick extends AppCompatActivity {
 //                            for (int i = 0; i < 5; i++) {
                                 JSONObject entry = jsonArray.getJSONObject(n);
                                 String name = entry.getString("name");
+                                String url = entry.getString("image_url");
+
+                                // location object is an array that contains address elements
                                 JSONObject location = entry.getJSONObject("location");
                                 String address = location.getString("address1");
                                 String city = location.getString("city");
@@ -139,6 +121,11 @@ public class DisplayRandomPick extends AppCompatActivity {
                                 String zipcode = location.getString("zip_code");
                                 String phone = entry.getString("display_phone");
                                 testUid.append(name + "\n" + phone + "\n" + address + "\n" + city + ", " + state + " " + zipcode);
+
+                                Picasso.get()
+                                        .load(url)
+                                        .resize(600, 500)
+                                        .into(imageView);
 //                            }
                             }
 
