@@ -3,7 +3,9 @@ package com.example.restaurantpickerlite;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -66,6 +68,17 @@ public class DisplayRandomPick extends AppCompatActivity {
 //        mainCuisine.setText(cuisines.get(0));
 
         jsonParse();
+
+        btnShow.setOnClickListener(v -> {
+            Intent maps = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("google.navigation:q=42.26642333,-71.020908&mode=d"));
+            maps.setPackage("com.google.android.apps.maps");
+
+            if (maps.resolveActivity(getPackageManager()) != null) {
+                startActivity(maps);
+            }
+
+        });
 
         btnPickAgain.setOnClickListener(v -> {
             testUid.setText("");
