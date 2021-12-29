@@ -141,7 +141,7 @@ public class DisplayRandomPick extends AppCompatActivity {
 
                                 Picasso.get()
                                         .load(url)
-                                        .resize(600, 500)
+//                                        .resize(600, 500)
                                         .into(imageView);
 //                            }
                             }
