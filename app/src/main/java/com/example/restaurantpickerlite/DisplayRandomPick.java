@@ -70,14 +70,16 @@ public class DisplayRandomPick extends AppCompatActivity {
         jsonParse();
 
         btnShow.setOnClickListener(v -> {
-            Intent maps = new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("google.navigation:q=" + address));
-            maps.setPackage("com.google.android.apps.maps");
-
-            if (maps.resolveActivity(getPackageManager()) != null) {
-                startActivity(maps);
-            }
-            Toast.makeText(this, address, Toast.LENGTH_LONG).show();
+//            Intent maps = new Intent(Intent.ACTION_VIEW,
+//                    Uri.parse("google.navigation:q=" + address));
+//            maps.setPackage("com.google.android.apps.maps");
+//
+//            if (maps.resolveActivity(getPackageManager()) != null) {
+//                startActivity(maps);
+//            }
+//            Toast.makeText(this, address, Toast.LENGTH_LONG).show();
+            Intent discover = new Intent(this, DiscoverActivity.class);
+            startActivity(discover);
 
         });
 

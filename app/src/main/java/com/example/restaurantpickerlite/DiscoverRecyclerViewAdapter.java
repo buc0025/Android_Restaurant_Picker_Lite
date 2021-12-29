@@ -1,4 +1,55 @@
 package com.example.restaurantpickerlite;
 
-public class DiscoverRecyclerViewAdapter {
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+
+public class DiscoverRecyclerViewAdapter extends RecyclerView.Adapter<DiscoverRecyclerViewAdapter.DiscoverViewHolder> {
+    private ArrayList<RestaurantItem> restaurantList;
+
+    public static class DiscoverViewHolder extends RecyclerView.ViewHolder {
+        public ImageView restaurantImage;
+        public TextView discoverTextView;
+        public TextView discoverTextView2;
+
+        public DiscoverViewHolder(@NonNull View itemView) {
+            super(itemView);
+            restaurantImage = itemView.findViewById(R.id.restaurantImage);
+            discoverTextView = itemView.findViewById(R.id.discoverTextView);
+            discoverTextView2 = itemView.findViewById(R.id.discoverTextView2);
+        }
+    }
+
+    public DiscoverRecyclerViewAdapter(ArrayList<RestaurantItem> restaurantList) {
+        this.restaurantList = restaurantList;
+    }
+
+    @NonNull
+    @Override
+    public DiscoverViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.restaurant_item, parent, false);
+        DiscoverViewHolder discoverViewHolder = new DiscoverViewHolder(view);
+        return discoverViewHolder;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull DiscoverRecyclerViewAdapter.DiscoverViewHolder holder, int position) {
+        RestaurantItem currentItem = restaurantList.get(position);
+
+        holder.restaurantImage.setImageResource(currentItem.getRestaurantImage());
+        holder.discoverTextView.setText(currentItem.getRestaurant());
+        holder.discoverTextView2.setText(currentItem.getAddress());
+    }
+
+    @Override
+    public int getItemCount() {
+        return restaurantList.size();
+    }
 }
