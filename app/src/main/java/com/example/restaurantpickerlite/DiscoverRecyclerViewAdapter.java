@@ -52,6 +52,7 @@ public class DiscoverRecyclerViewAdapter extends RecyclerView.Adapter<DiscoverRe
         Picasso.get()
                 .load(currentItem.getRestaurantImage())
                 .into(holder.restaurantImage);
+
         holder.discoverTextView.setText(currentItem.getRestaurant());
         holder.discoverTextView2.setText(currentItem.getAddress());
     }

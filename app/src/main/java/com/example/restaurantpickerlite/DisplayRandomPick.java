@@ -38,6 +38,7 @@ public class DisplayRandomPick extends AppCompatActivity {
     private ArrayList<String> cuisines;
     private Button btnShow, btnPickAgain;
     private ImageView imageView;
+    private ArrayList<RestaurantItem> restaurantList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,26 +54,12 @@ public class DisplayRandomPick extends AppCompatActivity {
         btnPickAgain = findViewById(R.id.btnPickAgain);
         imageView = findViewById(R.id.imageView);
         address = "";
+        restaurantList = new ArrayList<>();
 
 //        String url = "https://s3-media2.fl.yelpcdn.com/bphoto/KyELb2OMVcIVwXZA0QgWLw/o.jpg";
 //        Picasso.get().load(url).into(imageView);
 
         requestQueue = Volley.newRequestQueue(this);
-
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
-        bottomNavigationView.setSelectedItemId(R.id.navigationDiscover);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.navigationDiscover:
-                        startActivity(new Intent(getApplicationContext(), DiscoverActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                }
-                return false;
-            }
-        });
 
         Intent intent = getIntent();
         zipcode = intent.getExtras().getString("zipcode");
@@ -104,6 +91,21 @@ public class DisplayRandomPick extends AppCompatActivity {
         btnPickAgain.setOnClickListener(v -> {
             testUid.setText("");
             jsonParse();
+        });
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
+        bottomNavigationView.setSelectedItemId(R.id.navigationDiscover);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.navigationDiscover:
+                        startActivity(new Intent(getApplicationContext(), DiscoverActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                }
+                return false;
+            }
         });
     }
 
@@ -164,6 +166,13 @@ public class DisplayRandomPick extends AppCompatActivity {
 //                                        .resize(600, 500)
                                         .into(imageView);
 //                            }
+                                for (int i = 0; i < jsonArray.length(); i++) {
+                                    JSONObject restaurant = jsonArray.getJSONObject(i);
+                                    String restaurantName = restaurant.getString("name");
+                                    String imageUrl = restaurant.getString("image_url");
+
+                                    restaurantList.add(new RestaurantItem(imageUrl, restaurantName, "Line 2"));
+                                }
                             }
 
                         } catch (JSONException e) {
