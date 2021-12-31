@@ -1,5 +1,6 @@
 package com.example.restaurantpickerlite;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,10 +10,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class DiscoverRecyclerViewAdapter extends RecyclerView.Adapter<DiscoverRecyclerViewAdapter.DiscoverViewHolder> {
     private ArrayList<RestaurantItem> restaurantList;
+    private Context context;
 
     public static class DiscoverViewHolder extends RecyclerView.ViewHolder {
         public ImageView restaurantImage;
@@ -27,8 +31,9 @@ public class DiscoverRecyclerViewAdapter extends RecyclerView.Adapter<DiscoverRe
         }
     }
 
-    public DiscoverRecyclerViewAdapter(ArrayList<RestaurantItem> restaurantList) {
+    public DiscoverRecyclerViewAdapter(ArrayList<RestaurantItem> restaurantList, Context context) {
         this.restaurantList = restaurantList;
+        this.context = context;
     }
 
     @NonNull
@@ -43,7 +48,10 @@ public class DiscoverRecyclerViewAdapter extends RecyclerView.Adapter<DiscoverRe
     public void onBindViewHolder(@NonNull DiscoverRecyclerViewAdapter.DiscoverViewHolder holder, int position) {
         RestaurantItem currentItem = restaurantList.get(position);
 
-        holder.restaurantImage.setImageResource(currentItem.getRestaurantImage());
+//        holder.restaurantImage.setImageResource(currentItem.getRestaurantImage());
+        Picasso.get()
+                .load(currentItem.getRestaurantImage())
+                .into(holder.restaurantImage);
         holder.discoverTextView.setText(currentItem.getRestaurant());
         holder.discoverTextView2.setText(currentItem.getAddress());
     }

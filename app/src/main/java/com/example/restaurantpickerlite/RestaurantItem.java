@@ -1,21 +1,21 @@
 package com.example.restaurantpickerlite;
 
 public class RestaurantItem {
-    private int restaurantImage;
+    private String restaurantImage;
     private String restaurant;
     private String address;
 
-    public RestaurantItem(int restaurantImage, String restaurant, String address) {
+    public RestaurantItem(String restaurantImage, String restaurant, String address) {
         this.restaurantImage = restaurantImage;
         this.restaurant = restaurant;
         this.address = address;
     }
 
-    public int getRestaurantImage() {
+    public String getRestaurantImage() {
         return restaurantImage;
     }
 
-    public void setRestaurantImage(int restaurantImage) {
+    public void setRestaurantImage(String restaurantImage) {
         this.restaurantImage = restaurantImage;
     }
 
