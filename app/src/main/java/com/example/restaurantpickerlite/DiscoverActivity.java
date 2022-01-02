@@ -22,8 +22,8 @@ public class DiscoverActivity extends AppCompatActivity {
 
         String url = "https://s3-media2.fl.yelpcdn.com/bphoto/KyELb2OMVcIVwXZA0QgWLw/o.jpg";
         ArrayList<RestaurantItem> restaurantList = new ArrayList<>();
-        restaurantList.add(new RestaurantItem(url, "Line 1", "Line 2"));
-        restaurantList.add(new RestaurantItem(url, "Line 1", "Line 2"));
+        restaurantList.add(new RestaurantItem("name", "address", "city", "zip", "state", url));
+        restaurantList.add(new RestaurantItem("name", "address", "city", "zip", "state", url));
 //        restaurantList.add(new RestaurantItem(R.drawable.ic_baseline_search_24, "Line 1", "Line 2"));
 
         recyclerView = findViewById(R.id.recyclerView);

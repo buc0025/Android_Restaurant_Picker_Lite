@@ -19,15 +19,15 @@ public class DiscoverRecyclerViewAdapter extends RecyclerView.Adapter<DiscoverRe
     private Context context;
 
     public static class DiscoverViewHolder extends RecyclerView.ViewHolder {
-        public ImageView restaurantImage;
         public TextView discoverTextView;
         public TextView discoverTextView2;
+        public ImageView restaurantImage;
 
         public DiscoverViewHolder(@NonNull View itemView) {
             super(itemView);
-            restaurantImage = itemView.findViewById(R.id.restaurantImage);
             discoverTextView = itemView.findViewById(R.id.discoverTextView);
             discoverTextView2 = itemView.findViewById(R.id.discoverTextView2);
+            restaurantImage = itemView.findViewById(R.id.restaurantImage);
         }
     }
 
@@ -49,12 +49,13 @@ public class DiscoverRecyclerViewAdapter extends RecyclerView.Adapter<DiscoverRe
         RestaurantItem currentItem = restaurantList.get(position);
 
 //        holder.restaurantImage.setImageResource(currentItem.getRestaurantImage());
-        Picasso.get()
-                .load(currentItem.getRestaurantImage())
-                .into(holder.restaurantImage);
 
         holder.discoverTextView.setText(currentItem.getRestaurant());
         holder.discoverTextView2.setText(currentItem.getAddress());
+
+        Picasso.get()
+                .load(currentItem.getRestaurantImage())
+                .into(holder.restaurantImage);
     }
 
     @Override

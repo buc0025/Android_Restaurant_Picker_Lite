@@ -171,7 +171,7 @@ public class DisplayRandomPick extends AppCompatActivity {
                                     String restaurantName = restaurant.getString("name");
                                     String imageUrl = restaurant.getString("image_url");
 
-                                    restaurantList.add(new RestaurantItem(imageUrl, restaurantName, "Line 2"));
+                                    restaurantList.add(new RestaurantItem("name", "address", "city", "zip", "state", url));
                                 }
                             }
 
