@@ -25,6 +25,8 @@ public class DiscoverActivity extends AppCompatActivity {
         restaurantList.add(new RestaurantItem("name", "address", "city", "zip", "state", url));
         restaurantList.add(new RestaurantItem("name", "address", "city", "zip", "state", url));
 //        restaurantList.add(new RestaurantItem(R.drawable.ic_baseline_search_24, "Line 1", "Line 2"));
+        RestaurantManager restaurantManager = new RestaurantManager(DiscoverActivity.this);
+        restaurantList = restaurantManager.getRestaurants();
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);

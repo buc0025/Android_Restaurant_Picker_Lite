@@ -56,6 +56,7 @@ public class DisplayRandomPick extends AppCompatActivity {
         address = "";
         restaurantList = new ArrayList<>();
 
+
 //        String url = "https://s3-media2.fl.yelpcdn.com/bphoto/KyELb2OMVcIVwXZA0QgWLw/o.jpg";
 //        Picasso.get().load(url).into(imageView);
 
@@ -169,9 +170,19 @@ public class DisplayRandomPick extends AppCompatActivity {
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject restaurant = jsonArray.getJSONObject(i);
                                     String restaurantName = restaurant.getString("name");
-                                    String imageUrl = restaurant.getString("image_url");
+                                    String restaurantAddress = restaurant.getString("address1");
+                                    String restaurantCity = restaurant.getString("city");
+                                    String restaurantZip = restaurant.getString("zip_code");
+                                    String restaurantState = restaurant.getString("state");
+                                    String restaurantImage = restaurant.getString("image_url");
 
-                                    restaurantList.add(new RestaurantItem("name", "address", "city", "zip", "state", url));
+//                                    restaurantList.add(new RestaurantItem("name", "address", "city",
+//                                            "zip", "state", url));
+                                    RestaurantItem restaurantItem = new RestaurantItem(restaurantName, restaurantAddress,
+                                            restaurantCity, restaurantZip, restaurantState, restaurantImage);
+
+                                    RestaurantManager restaurantManager = new RestaurantManager(DisplayRandomPick.this);
+                                    restaurantManager.saveRestaurant(restaurantItem);
                                 }
                             }
 

@@ -25,8 +25,8 @@ public class RestaurantManager {
         editor.commit();
     }
 
-    public List<RestaurantItem> getRestaurants() {
-        List<RestaurantItem> restaurants = new ArrayList<>();
+    public ArrayList<RestaurantItem> getRestaurants() {
+        ArrayList<RestaurantItem> restaurants = new ArrayList<>();
 
         for (String entry : sharedPreferences.getAll().keySet()) {
             Gson gson = new Gson();
