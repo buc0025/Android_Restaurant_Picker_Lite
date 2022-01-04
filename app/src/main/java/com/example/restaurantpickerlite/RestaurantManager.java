@@ -39,4 +39,13 @@ public class RestaurantManager {
         }
         return restaurants;
     }
+
+    public void deleteRestaurants(ArrayList<RestaurantItem> restaurantItems) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        for (RestaurantItem restaurant : restaurantItems) {
+            editor.remove(restaurant.getRestaurant());
+            editor.apply();
+        }
+    }
 }

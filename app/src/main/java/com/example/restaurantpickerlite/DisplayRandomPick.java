@@ -84,9 +84,15 @@ public class DisplayRandomPick extends AppCompatActivity {
 //                startActivity(maps);
 //            }
 //            Toast.makeText(this, address, Toast.LENGTH_LONG).show();
-            Intent discover = new Intent(this, DiscoverActivity.class);
-            startActivity(discover);
 
+            // Opens discover tab
+//            Intent discover = new Intent(this, DiscoverActivity.class);
+//            startActivity(discover);
+
+            RestaurantManager restaurantManager = new RestaurantManager(DisplayRandomPick.this);
+            ArrayList<RestaurantItem> restaurantList = new ArrayList<>();
+            restaurantList = restaurantManager.getRestaurants();
+            restaurantManager.deleteRestaurants(restaurantList);
         });
 
         btnPickAgain.setOnClickListener(v -> {
