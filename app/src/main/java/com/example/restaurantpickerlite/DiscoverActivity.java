@@ -20,11 +20,9 @@ public class DiscoverActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_discover);
 
-        String url = "https://s3-media2.fl.yelpcdn.com/bphoto/KyELb2OMVcIVwXZA0QgWLw/o.jpg";
         ArrayList<RestaurantItem> restaurantList = new ArrayList<>();
-        restaurantList.add(new RestaurantItem("name", "address", "city", "zip", "state", url));
-        restaurantList.add(new RestaurantItem("name", "address", "city", "zip", "state", url));
-//        restaurantList.add(new RestaurantItem(R.drawable.ic_baseline_search_24, "Line 1", "Line 2"));
+
+        // Retrieving shared preferences saved from DisplayRandomPick.class
         RestaurantManager restaurantManager = new RestaurantManager(DiscoverActivity.this);
         restaurantList = restaurantManager.getRestaurants();
 

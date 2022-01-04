@@ -22,7 +22,7 @@ public class RestaurantManager {
         Gson gson = new Gson();
         String json = gson.toJson(restaurantItem);
         editor.putString(restaurantItem.getRestaurant(), json);
-        editor.commit();
+        editor.apply();
     }
 
     public ArrayList<RestaurantItem> getRestaurants() {

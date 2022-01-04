@@ -170,17 +170,19 @@ public class DisplayRandomPick extends AppCompatActivity {
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject restaurant = jsonArray.getJSONObject(i);
                                     String restaurantName = restaurant.getString("name");
-                                    String restaurantAddress = restaurant.getString("address1");
-                                    String restaurantCity = restaurant.getString("city");
-                                    String restaurantZip = restaurant.getString("zip_code");
-                                    String restaurantState = restaurant.getString("state");
                                     String restaurantImage = restaurant.getString("image_url");
 
-//                                    restaurantList.add(new RestaurantItem("name", "address", "city",
-//                                            "zip", "state", url));
+                                    // need to get location address
+                                    JSONObject jsonObject = restaurant.getJSONObject("location");
+                                    String restaurantAddress = jsonObject.getString("address1");
+                                    String restaurantCity = jsonObject.getString("city");
+                                    String restaurantZip = jsonObject.getString("zip_code");
+                                    String restaurantState = jsonObject.getString("state");
+
                                     RestaurantItem restaurantItem = new RestaurantItem(restaurantName, restaurantAddress,
                                             restaurantCity, restaurantZip, restaurantState, restaurantImage);
 
+                                    // Save restaurant item to shared preferences
                                     RestaurantManager restaurantManager = new RestaurantManager(DisplayRandomPick.this);
                                     restaurantManager.saveRestaurant(restaurantItem);
                                 }

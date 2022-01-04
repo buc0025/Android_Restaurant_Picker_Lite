@@ -48,8 +48,6 @@ public class DiscoverRecyclerViewAdapter extends RecyclerView.Adapter<DiscoverRe
     public void onBindViewHolder(@NonNull DiscoverRecyclerViewAdapter.DiscoverViewHolder holder, int position) {
         RestaurantItem currentItem = restaurantList.get(position);
 
-//        holder.restaurantImage.setImageResource(currentItem.getRestaurantImage());
-
         holder.discoverTextView.setText(currentItem.getRestaurant());
         holder.discoverTextView2.setText(currentItem.getAddress());
 
