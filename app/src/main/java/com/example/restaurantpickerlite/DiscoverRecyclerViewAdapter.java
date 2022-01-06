@@ -1,6 +1,7 @@
 package com.example.restaurantpickerlite;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,6 +55,14 @@ public class DiscoverRecyclerViewAdapter extends RecyclerView.Adapter<DiscoverRe
         Picasso.get()
                 .load(currentItem.getRestaurantImage())
                 .into(holder.restaurantImage);
+
+        holder.restaurantImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, RestaurantInfoActivity.class);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
