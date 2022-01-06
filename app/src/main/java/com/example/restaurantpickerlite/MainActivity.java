@@ -72,6 +72,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         requestQueue = Volley.newRequestQueue(this);
 
+        // Resets shared preferences when app is launched
+        RestaurantManager restaurantManager = new RestaurantManager(MainActivity.this);
+        ArrayList<RestaurantItem> restaurantList = new ArrayList<>();
+        restaurantList = restaurantManager.getRestaurants();
+        restaurantManager.deleteRestaurants(restaurantList);
+
         btnApply.setEnabled(false);
         checkboxesClicked();
 
