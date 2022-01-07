@@ -1,4 +1,4 @@
-package com.example.restaurantpickerlite;
+package com.example.restaurantpickerlite.models;
 
 public class RestaurantItem {
     private String restaurant;

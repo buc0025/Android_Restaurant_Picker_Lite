@@ -1,14 +1,12 @@
-package com.example.restaurantpickerlite;
+package com.example.restaurantpickerlite.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -22,6 +20,9 @@ import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.example.restaurantpickerlite.R;
+import com.example.restaurantpickerlite.models.RestaurantItem;
+import com.example.restaurantpickerlite.managers.RestaurantManager;
 
 import java.util.ArrayList;
 import java.util.List;

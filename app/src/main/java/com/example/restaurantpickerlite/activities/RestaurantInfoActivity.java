@@ -1,4 +1,4 @@
-package com.example.restaurantpickerlite;
+package com.example.restaurantpickerlite.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.restaurantpickerlite.R;
 import com.squareup.picasso.Picasso;
 
 public class RestaurantInfoActivity extends AppCompatActivity {

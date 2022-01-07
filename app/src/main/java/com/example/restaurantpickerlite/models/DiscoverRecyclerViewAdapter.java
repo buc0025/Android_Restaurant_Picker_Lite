@@ -1,4 +1,4 @@
-package com.example.restaurantpickerlite;
+package com.example.restaurantpickerlite.models;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.restaurantpickerlite.R;
+import com.example.restaurantpickerlite.activities.RestaurantInfoActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

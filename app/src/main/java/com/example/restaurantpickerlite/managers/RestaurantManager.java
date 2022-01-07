@@ -1,12 +1,12 @@
-package com.example.restaurantpickerlite;
+package com.example.restaurantpickerlite.managers;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.example.restaurantpickerlite.models.RestaurantItem;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class RestaurantManager {
 

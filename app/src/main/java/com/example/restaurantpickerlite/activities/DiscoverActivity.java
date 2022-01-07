@@ -1,4 +1,4 @@
-package com.example.restaurantpickerlite;
+package com.example.restaurantpickerlite.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -6,7 +6,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import com.squareup.picasso.Picasso;
+import com.example.restaurantpickerlite.models.DiscoverRecyclerViewAdapter;
+import com.example.restaurantpickerlite.R;
+import com.example.restaurantpickerlite.models.RestaurantItem;
+import com.example.restaurantpickerlite.managers.RestaurantManager;
 
 import java.util.ArrayList;
 
