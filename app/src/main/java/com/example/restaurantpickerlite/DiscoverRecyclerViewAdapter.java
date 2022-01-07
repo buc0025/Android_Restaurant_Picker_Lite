@@ -60,6 +60,10 @@ public class DiscoverRecyclerViewAdapter extends RecyclerView.Adapter<DiscoverRe
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, RestaurantInfoActivity.class);
+
+                // Passing data tto RestaurantInfoAcivity
+                intent.putExtra("imageUrl", currentItem.getRestaurantImage());
+                intent.putExtra("name", currentItem.getRestaurant());
                 context.startActivity(intent);
             }
         });
