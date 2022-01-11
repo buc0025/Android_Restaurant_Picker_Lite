@@ -66,6 +66,10 @@ public class DiscoverRecyclerViewAdapter extends RecyclerView.Adapter<DiscoverRe
                 // Passing data tto RestaurantInfoAcivity
                 intent.putExtra("imageUrl", currentItem.getRestaurantImage());
                 intent.putExtra("name", currentItem.getRestaurant());
+                intent.putExtra("address", currentItem.getAddress());
+                intent.putExtra("city", currentItem.getCity());
+                intent.putExtra("state", currentItem.getState());
+                intent.putExtra("zip code", currentItem.getZipCode());
                 context.startActivity(intent);
             }
         });

@@ -6,14 +6,16 @@ public class RestaurantItem {
     private String city;
     private String zipCode;
     private String state;
+    private String phone;
     private String restaurantImage;
 
-    public RestaurantItem(String restaurant, String address, String city, String zipCode, String state, String restaurantImage) {
+    public RestaurantItem(String restaurant, String address, String city, String zipCode, String state, String phone, String restaurantImage) {
         this.restaurant = restaurant;
         this.address = address;
         this.city = city;
         this.zipCode = zipCode;
         this.state = state;
+        this.phone = phone;
         this.restaurantImage = restaurantImage;
     }
 
@@ -55,6 +57,14 @@ public class RestaurantItem {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getRestaurantImage() {
