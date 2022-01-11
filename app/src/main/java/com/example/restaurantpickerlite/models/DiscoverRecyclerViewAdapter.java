@@ -22,14 +22,18 @@ public class DiscoverRecyclerViewAdapter extends RecyclerView.Adapter<DiscoverRe
     private Context context;
 
     public static class DiscoverViewHolder extends RecyclerView.ViewHolder {
-        public TextView discoverTextView;
-        public TextView discoverTextView2;
+        public TextView discoverRestaurantName;
+        public TextView discoverRestaurantAddress;
+        public TextView discoverRestaurantCity;
+        public TextView discoverRestaurantPhone;
         public ImageView restaurantImage;
 
         public DiscoverViewHolder(@NonNull View itemView) {
             super(itemView);
-            discoverTextView = itemView.findViewById(R.id.discoverTextView);
-            discoverTextView2 = itemView.findViewById(R.id.discoverTextView2);
+            discoverRestaurantName = itemView.findViewById(R.id.discoverRestaurantName);
+            discoverRestaurantAddress = itemView.findViewById(R.id.discoverRestaurantAddress);
+            discoverRestaurantCity = itemView.findViewById(R.id.discoverRestaurantCity);
+            discoverRestaurantPhone = itemView.findViewById(R.id.discoverRestaurantPhone);
             restaurantImage = itemView.findViewById(R.id.restaurantImage);
         }
     }
@@ -50,9 +54,12 @@ public class DiscoverRecyclerViewAdapter extends RecyclerView.Adapter<DiscoverRe
     @Override
     public void onBindViewHolder(@NonNull DiscoverRecyclerViewAdapter.DiscoverViewHolder holder, int position) {
         RestaurantItem currentItem = restaurantList.get(position);
+        String city = currentItem.getCity() + ", " + currentItem.getState() + " " + currentItem.getZipCode();
 
-        holder.discoverTextView.setText(currentItem.getRestaurant());
-        holder.discoverTextView2.setText(currentItem.getAddress());
+        holder.discoverRestaurantName.setText(currentItem.getRestaurant());
+        holder.discoverRestaurantAddress.setText(currentItem.getAddress());
+        holder.discoverRestaurantCity.setText(city);
+        holder.discoverRestaurantPhone.setText(currentItem.getPhone());
 
         Picasso.get()
                 .load(currentItem.getRestaurantImage())

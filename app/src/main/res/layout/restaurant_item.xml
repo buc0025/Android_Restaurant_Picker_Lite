@@ -24,10 +24,10 @@
             android:layout_toEndOf="@id/restaurantImage"/>
 
         <TextView
-            android:id="@+id/discoverTextView"
+            android:id="@+id/discoverRestaurantName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Line 1"
+            android:text="restaurant"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -35,12 +35,32 @@
             android:layout_toEndOf="@+id/spaceBetweenImg"/>
 
         <TextView
-            android:id="@+id/discoverTextView2"
+            android:id="@+id/discoverRestaurantAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Line 2"
+            android:text="address"
             android:textSize="15sp"
-            android:layout_below="@+id/discoverTextView"
+            android:layout_below="@+id/discoverRestaurantName"
+            android:layout_toEndOf="@+id/spaceBetweenImg"
+            android:layout_marginStart="8dp"/>
+
+        <TextView
+            android:id="@+id/discoverRestaurantCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="city"
+            android:textSize="15sp"
+            android:layout_below="@+id/discoverRestaurantAddress"
+            android:layout_toEndOf="@+id/spaceBetweenImg"
+            android:layout_marginStart="8dp"/>
+
+        <TextView
+            android:id="@+id/discoverRestaurantPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="phone"
+            android:textSize="15sp"
+            android:layout_below="@+id/discoverRestaurantCity"
             android:layout_toEndOf="@+id/spaceBetweenImg"
             android:layout_marginStart="8dp"/>
 
