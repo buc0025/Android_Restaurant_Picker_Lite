@@ -77,6 +77,7 @@ public class DiscoverRecyclerViewAdapter extends RecyclerView.Adapter<DiscoverRe
                 intent.putExtra("city", currentItem.getCity());
                 intent.putExtra("state", currentItem.getState());
                 intent.putExtra("zip code", currentItem.getZipCode());
+                intent.putExtra("phone", currentItem.getPhone());
                 context.startActivity(intent);
             }
         });

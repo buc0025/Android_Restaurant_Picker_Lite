@@ -33,9 +33,42 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/restaurantInfoImg"
+                android:text="restaurant name"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:text="restaurant info"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/restaurantInfoAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/restaurantInfoName"
+                android:text="address"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/restaurantInfoCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/restaurantInfoAddress"
+                android:text="city"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/restaurantInfoPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/restaurantInfoCity"
+                android:text="phone"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
@@ -54,7 +87,7 @@
                 android:layout_marginTop="20dp" />
 
             <Button
-                android:id="@+id/pickagainBtn"
+                android:id="@+id/pickAgainBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
