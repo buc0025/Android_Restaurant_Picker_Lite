@@ -76,6 +76,7 @@
                 android:id="@+id/websiteBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Web site"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp" />
 
@@ -83,13 +84,7 @@
                 android:id="@+id/directionsBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp" />
-
-            <Button
-                android:id="@+id/pickAgainBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:text="directions"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp" />
 

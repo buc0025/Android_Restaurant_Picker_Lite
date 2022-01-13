@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 import com.example.restaurantpickerlite.models.RestaurantItem;
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
+
 public class FavoritesManager {
 
     final private static String FAVORITE_SHARED_PREFS = "FAVORITE_SHARED_PREFS";
@@ -21,6 +23,21 @@ public class FavoritesManager {
         String json = gson.toJson(restaurantItem);
         editor.putString(restaurantItem.getRestaurant(), json);
         editor.apply();
+    }
+
+    public ArrayList<RestaurantItem> getRestaurants() {
+        ArrayList<RestaurantItem> restaurants = new ArrayList<>();
+
+        for (String entry : sharedPreferences.getAll().keySet()) {
+            Gson gson = new Gson();
+            String json = sharedPreferences.getString(entry, null);
+            RestaurantItem restaurant = gson.fromJson(json, RestaurantItem.class);
+
+            if (entry != null) {
+                restaurants.add(restaurant);
+            }
+        }
+        return restaurants;
     }
 
     public void removeFavorite(RestaurantItem restaurantItem) {
