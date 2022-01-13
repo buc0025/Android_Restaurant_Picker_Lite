@@ -111,6 +111,10 @@ public class DisplayRandomPick extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), DiscoverActivity.class));
                         overridePendingTransition(0,0);
                         return true;
+                    case R.id.navigationFavorites:
+                        startActivity(new Intent(getApplicationContext(), FavoritesActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
                 }
                 return false;
             }
