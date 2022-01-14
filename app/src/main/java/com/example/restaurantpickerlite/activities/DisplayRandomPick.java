@@ -33,7 +33,8 @@ import java.util.Map;
 import java.util.Random;
 
 public class DisplayRandomPick extends AppCompatActivity {
-    private TextView testUid, mainZipCode, mainMiles, mainCuisine, mainOpened;
+    private TextView testUid, mainZipCode, mainMiles, mainCuisine, mainOpenedrestaurantInfoName, restaurantInfoAddress,
+            restaurantInfoCity, restaurantInfoPhone;;
     private RequestQueue requestQueue;
     private String zipcode, radius, opened, address;
     private ArrayList<String> cuisines;

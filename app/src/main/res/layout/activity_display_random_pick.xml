@@ -4,82 +4,189 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.DisplayRandomPick">
+    tools:context=".activities.DisplayRandomPick"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/testUid"
-        android:layout_width="wrap_content"
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="32dp"
-        android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:layout_above="@id/bottomNavigation">
 
-    <TextView
-        android:id="@+id/mainZipCode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="127dp"
-        android:layout_marginStart="10dp"
-        android:text="zipcode"
-        android:textColor="@color/black"
-        android:textSize="20sp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/bottomNavigation"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/mainMiles"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="187dp"
-        android:text="Miles Radius"
-        android:textColor="@color/black"
-        android:textSize="20sp"/>
+<!--            <ImageView-->
+<!--                android:id="@+id/imageView"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:adjustViewBounds="true"-->
+<!--                android:maxHeight="250dp"-->
+<!--                android:scaleType="fitCenter"-->
+<!--                android:layout_alignParentBottom="true"-->
+<!--                android:layout_centerHorizontal="true"-->
+<!--                android:layout_marginBottom="198dp"-->
+<!--                app:srcCompat="@drawable/ic_launcher_foreground" />-->
 
-    <TextView
-        android:id="@+id/mainCuisine"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="247dp"
-        android:text="Cuisine"
-        android:textColor="@color/black"
-        android:textSize="20sp"/>
+            <ImageView
+                android:id="@+id/restaurantImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                app:srcCompat="@drawable/ic_launcher_foreground" />
 
-    <TextView
-        android:id="@+id/mainOpened"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="307dp"
-        android:text="opened"
-        android:textColor="@color/black"
-        android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/restaurantInfoName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/restaurantImg"
+                android:text="restaurant name"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
-    <Button
-        android:id="@+id/btnShow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="137dp"
-        android:text="Show" />
+            <TextView
+                android:id="@+id/restaurantInfoAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/restaurantInfoName"
+                android:text="address"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
-    <Button
-        android:id="@+id/btnPickAgain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="81dp"
-        android:text="Pick Again" />
+            <TextView
+                android:id="@+id/restaurantInfoCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/restaurantInfoAddress"
+                android:text="city"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/restaurantInfoPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/restaurantInfoCity"
+                android:text="phone"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/websiteBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Web site"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp" />
+
+            <Button
+                android:id="@+id/directionsBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="directions"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp" />
+
+            <Button
+                android:id="@+id/btnShow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Show"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"/>
+
+            <Button
+                android:id="@+id/btnPickAgain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pick Again"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"/>
+
+            <ToggleButton
+                android:id="@+id/favoriteBtn"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/custom_button"
+                android:textOff=""
+                android:textOn="" />
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+<!--    <TextView-->
+<!--        android:id="@+id/testUid"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_marginStart="70dp"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="20sp" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/mainZipCode"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="127dp"-->
+<!--        android:layout_marginStart="10dp"-->
+<!--        android:text="zipcode"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="20sp"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/mainMiles"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_marginStart="10dp"-->
+<!--        android:layout_marginTop="187dp"-->
+<!--        android:text="Miles Radius"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="20sp"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/mainCuisine"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_marginStart="10dp"-->
+<!--        android:layout_marginTop="247dp"-->
+<!--        android:text="Cuisine"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="20sp"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/mainOpened"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_marginStart="10dp"-->
+<!--        android:layout_marginTop="307dp"-->
+<!--        android:text="opened"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="20sp"/>-->
+
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
@@ -90,17 +197,7 @@
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:maxHeight="250dp"
-        android:scaleType="fitCenter"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="198dp"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
+
 
 
 </RelativeLayout>
