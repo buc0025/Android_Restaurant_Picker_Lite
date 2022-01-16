@@ -33,13 +33,13 @@ import java.util.Map;
 import java.util.Random;
 
 public class DisplayRandomPick extends AppCompatActivity {
-    private TextView testUid, mainZipCode, mainMiles, mainCuisine, mainOpenedrestaurantInfoName, restaurantInfoAddress,
+    private TextView testUid, mainZipCode, mainMiles, mainCuisine, mainOpened, restaurantInfoName, restaurantInfoAddress,
             restaurantInfoCity, restaurantInfoPhone;;
     private RequestQueue requestQueue;
     private String zipcode, radius, opened, address;
     private ArrayList<String> cuisines;
     private Button btnShow, btnPickAgain;
-    private ImageView imageView;
+    private ImageView restaurantImg;
     private ArrayList<RestaurantItem> restaurantList;
 
     @Override
@@ -47,14 +47,19 @@ public class DisplayRandomPick extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_random_pick);
 
-        testUid = findViewById(R.id.testUid);
-        mainZipCode = findViewById(R.id.mainZipCode);
-        mainMiles = findViewById(R.id.mainMiles);
-        mainCuisine = findViewById(R.id.mainCuisine);
-        mainOpened = findViewById(R.id.mainOpened);
+
+        restaurantInfoName = findViewById(R.id.restaurantInfoName);
+        restaurantInfoAddress = findViewById(R.id.restaurantInfoAddress);
+        restaurantInfoCity = findViewById(R.id.restaurantInfoCity);
+        restaurantInfoPhone = findViewById(R.id.restaurantInfoPhone);
+//        testUid = findViewById(R.id.testUid);
+//        mainZipCode = findViewById(R.id.mainZipCode);
+//        mainMiles = findViewById(R.id.mainMiles);
+//        mainCuisine = findViewById(R.id.mainCuisine);
+//        mainOpened = findViewById(R.id.mainOpened);
         btnShow = findViewById(R.id.btnShow);
         btnPickAgain = findViewById(R.id.btnPickAgain);
-        imageView = findViewById(R.id.imageView);
+        restaurantImg = findViewById(R.id.restaurantImg);
         address = "";
         restaurantList = new ArrayList<>();
 
@@ -70,9 +75,9 @@ public class DisplayRandomPick extends AppCompatActivity {
         opened = intent.getExtras().getString("opened");
         cuisines = (ArrayList<String>) getIntent().getSerializableExtra("cuisines");
 
-        mainZipCode.setText(zipcode);
-        mainMiles.setText(radius);
-        mainOpened.setText(opened);
+//        mainZipCode.setText(zipcode);
+//        mainMiles.setText(radius);
+//        mainOpened.setText(opened);
 //        mainCuisine.setText(cuisines.get(0));
 
         jsonParse();
@@ -153,7 +158,8 @@ public class DisplayRandomPick extends AppCompatActivity {
                             JSONArray jsonArray = response.getJSONArray("businesses");
 
                             if (jsonArray.length() == 0) {
-                                testUid.append("No restaurants matches your criteria");
+//                                testUid.append("No restaurants matches your criteria");
+                                restaurantInfoName.append("No restaurants matches your criteria");
                             } else {
                                 Random random = new Random();
                                 int n = random.nextInt(jsonArray.length());
@@ -170,14 +176,21 @@ public class DisplayRandomPick extends AppCompatActivity {
                                 String zipcode = location.getString("zip_code");
                                 String phone = entry.getString("display_phone");
 
-                                DisplayRandomPick.this.address = address + ", " + city + " " + state;
+                                String cityStateZip = city + ", " + state + " " + zipcode;
 
-                                testUid.append(name + "\n" + phone + "\n" + address + "\n" + city + ", " + state + " " + zipcode);
+//                                DisplayRandomPick.this.address = address + ", " + city + " " + state;
+
+//                                testUid.append(name + "\n" + phone + "\n" + address + "\n" + city + ", " + state + " " + zipcode);
+
+                                restaurantInfoName.setText(name);
+                                restaurantInfoAddress.setText(address);
+                                restaurantInfoCity.setText(cityStateZip);
+                                restaurantInfoPhone.setText(phone);
 
                                 Picasso.get()
                                         .load(url)
 //                                        .resize(600, 500)
-                                        .into(imageView);
+                                        .into(restaurantImg);
 //                            }
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject restaurant = jsonArray.getJSONObject(i);
