@@ -25,7 +25,7 @@ public class FavoritesManager {
         editor.apply();
     }
 
-    public ArrayList<RestaurantItem> getRestaurants() {
+    public ArrayList<RestaurantItem> getFavorites() {
         ArrayList<RestaurantItem> restaurants = new ArrayList<>();
 
         for (String entry : sharedPreferences.getAll().keySet()) {
@@ -44,5 +44,9 @@ public class FavoritesManager {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.remove(restaurantItem.getRestaurant());
         editor.apply();
+    }
+
+    public boolean isFavorited(String restaurantName) {
+        return sharedPreferences.contains(restaurantName);
     }
 }

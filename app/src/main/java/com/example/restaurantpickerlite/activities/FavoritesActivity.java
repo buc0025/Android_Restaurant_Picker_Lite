@@ -8,8 +8,6 @@ import android.os.Bundle;
 
 import com.example.restaurantpickerlite.R;
 import com.example.restaurantpickerlite.managers.FavoritesManager;
-import com.example.restaurantpickerlite.managers.RestaurantManager;
-import com.example.restaurantpickerlite.models.DiscoverRecyclerViewAdapter;
 import com.example.restaurantpickerlite.models.FavoritesRecyclerViewAdapter;
 import com.example.restaurantpickerlite.models.RestaurantItem;
 
@@ -29,7 +27,7 @@ public class FavoritesActivity extends AppCompatActivity {
 
         // Retrieving shared preferences saved from DisplayRandomPick.class
         FavoritesManager favoritesManager = new FavoritesManager(FavoritesActivity.this);
-        restaurantList = favoritesManager.getRestaurants();
+        restaurantList = favoritesManager.getFavorites();
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
