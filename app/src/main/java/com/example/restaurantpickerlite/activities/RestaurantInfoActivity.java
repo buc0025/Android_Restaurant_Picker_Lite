@@ -1,9 +1,11 @@
 package com.example.restaurantpickerlite.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,6 +15,7 @@ import android.widget.ToggleButton;
 import com.example.restaurantpickerlite.R;
 import com.example.restaurantpickerlite.managers.FavoritesManager;
 import com.example.restaurantpickerlite.models.RestaurantItem;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.squareup.picasso.Picasso;
 
 public class RestaurantInfoActivity extends AppCompatActivity {
@@ -64,6 +67,25 @@ public class RestaurantInfoActivity extends AppCompatActivity {
                     favoritesManager.removeFavorite(restaurantItem);
                     favBtn.setChecked(false);
                 }
+            }
+        });
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
+//        bottomNavigationView.setSelectedItemId(R.id.navigationFavorites);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.navigationDiscover:
+                        startActivity(new Intent(getApplicationContext(), DiscoverActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.navigationFavorites:
+                        startActivity(new Intent(getApplicationContext(), FavoritesActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                }
+                return false;
             }
         });
 
