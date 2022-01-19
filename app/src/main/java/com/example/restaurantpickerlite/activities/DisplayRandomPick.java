@@ -6,9 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -18,6 +21,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.restaurantpickerlite.R;
+import com.example.restaurantpickerlite.managers.FavoritesManager;
 import com.example.restaurantpickerlite.models.RestaurantItem;
 import com.example.restaurantpickerlite.managers.RestaurantManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -41,6 +45,7 @@ public class DisplayRandomPick extends AppCompatActivity {
     private Button btnShow, btnPickAgain;
     private ImageView restaurantImg;
     private ArrayList<RestaurantItem> restaurantList;
+    private ToggleButton favoriteBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +67,8 @@ public class DisplayRandomPick extends AppCompatActivity {
         restaurantImg = findViewById(R.id.restaurantImg);
         address = "";
         restaurantList = new ArrayList<>();
+        favoriteBtn = findViewById(R.id.favoriteBtn);
+
 
 
 //        String url = "https://s3-media2.fl.yelpcdn.com/bphoto/KyELb2OMVcIVwXZA0QgWLw/o.jpg";
@@ -211,6 +218,22 @@ public class DisplayRandomPick extends AppCompatActivity {
                                     // Save restaurant item to shared preferences
                                     RestaurantManager restaurantManager = new RestaurantManager(DisplayRandomPick.this);
                                     restaurantManager.saveRestaurant(restaurantItem);
+
+                                    FavoritesManager favoritesManager = new FavoritesManager(DisplayRandomPick.this);
+                                    favoriteBtn.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            if (favoriteBtn.isChecked()) {
+                                                Toast.makeText(DisplayRandomPick.this, "restaurant favorited", Toast.LENGTH_SHORT).show();
+                                                favoritesManager.saveFavorite(restaurantItem);
+                                                favoriteBtn.setChecked(true);
+                                            } else {
+                                                Toast.makeText(DisplayRandomPick.this, "restaurant unfavorited", Toast.LENGTH_SHORT).show();
+                                                favoritesManager.removeFavorite(restaurantItem);
+                                                favoriteBtn.setChecked(false);
+                                            }
+                                        }
+                                    });
                                 }
                             }
 
