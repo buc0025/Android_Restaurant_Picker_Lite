@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.example.restaurantpickerlite.R;
@@ -59,5 +61,23 @@ public class FavoritesActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.favorites_toolbar, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.deleteFavorites) {
+            FavoritesManager favoritesManager = new FavoritesManager(FavoritesActivity.this);
+            favoritesManager.deleteAllFavorites();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

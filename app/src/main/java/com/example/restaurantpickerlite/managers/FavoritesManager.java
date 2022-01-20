@@ -46,6 +46,21 @@ public class FavoritesManager {
         editor.apply();
     }
 
+    public void deleteAllFavorites() {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        for (String entry : sharedPreferences.getAll().keySet()) {
+            Gson gson = new Gson();
+            String json = sharedPreferences.getString(entry, null);
+            RestaurantItem restaurantItem = gson.fromJson(json, RestaurantItem.class);
+
+            if (entry != null) {
+                editor.remove(restaurantItem.getRestaurant());
+                editor.apply();
+            }
+        }
+    }
+
     public boolean isFavorited(String restaurantName) {
         return sharedPreferences.contains(restaurantName);
     }
