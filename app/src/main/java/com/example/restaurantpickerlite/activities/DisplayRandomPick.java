@@ -110,7 +110,7 @@ public class DisplayRandomPick extends AppCompatActivity {
         });
 
         btnPickAgain.setOnClickListener(v -> {
-            testUid.setText("");
+//            testUid.setText("");
             jsonParse();
         });
 
@@ -198,6 +198,25 @@ public class DisplayRandomPick extends AppCompatActivity {
                                         .load(url)
 //                                        .resize(600, 500)
                                         .into(restaurantImg);
+
+                                RestaurantItem favoriteRestaurant = new RestaurantItem(name, address,
+                                        city, zipcode, state, phone, url);
+
+                                FavoritesManager favoritesManager = new FavoritesManager(DisplayRandomPick.this);
+                                favoriteBtn.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        if (favoriteBtn.isChecked()) {
+                                            Toast.makeText(DisplayRandomPick.this, "restaurant favorited", Toast.LENGTH_SHORT).show();
+                                            favoritesManager.saveFavorite(favoriteRestaurant);
+                                            favoriteBtn.setChecked(true);
+                                        } else {
+                                            Toast.makeText(DisplayRandomPick.this, "restaurant unfavorited", Toast.LENGTH_SHORT).show();
+                                            favoritesManager.removeFavorite(favoriteRestaurant);
+                                            favoriteBtn.setChecked(false);
+                                        }
+                                    }
+                                });
 //                            }
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject restaurant = jsonArray.getJSONObject(i);
@@ -218,22 +237,6 @@ public class DisplayRandomPick extends AppCompatActivity {
                                     // Save restaurant item to shared preferences
                                     RestaurantManager restaurantManager = new RestaurantManager(DisplayRandomPick.this);
                                     restaurantManager.saveRestaurant(restaurantItem);
-
-                                    FavoritesManager favoritesManager = new FavoritesManager(DisplayRandomPick.this);
-                                    favoriteBtn.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            if (favoriteBtn.isChecked()) {
-                                                Toast.makeText(DisplayRandomPick.this, "restaurant favorited", Toast.LENGTH_SHORT).show();
-                                                favoritesManager.saveFavorite(restaurantItem);
-                                                favoriteBtn.setChecked(true);
-                                            } else {
-                                                Toast.makeText(DisplayRandomPick.this, "restaurant unfavorited", Toast.LENGTH_SHORT).show();
-                                                favoritesManager.removeFavorite(restaurantItem);
-                                                favoriteBtn.setChecked(false);
-                                            }
-                                        }
-                                    });
                                 }
                             }
 
