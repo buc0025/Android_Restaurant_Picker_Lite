@@ -77,6 +77,8 @@ public class FavoritesActivity extends AppCompatActivity {
         if (id == R.id.deleteFavorites) {
             FavoritesManager favoritesManager = new FavoritesManager(FavoritesActivity.this);
             favoritesManager.deleteAllFavorites();
+            finish();
+            startActivity(getIntent());
         }
         return super.onOptionsItemSelected(item);
     }

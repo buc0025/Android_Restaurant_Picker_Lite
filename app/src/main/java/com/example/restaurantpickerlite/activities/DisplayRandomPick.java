@@ -110,7 +110,6 @@ public class DisplayRandomPick extends AppCompatActivity {
         });
 
         btnPickAgain.setOnClickListener(v -> {
-//            testUid.setText("");
             jsonParse();
         });
 
