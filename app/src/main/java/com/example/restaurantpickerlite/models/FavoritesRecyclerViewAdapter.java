@@ -1,6 +1,7 @@
 package com.example.restaurantpickerlite.models;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.restaurantpickerlite.R;
+import com.example.restaurantpickerlite.activities.RestaurantInfoActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -62,6 +64,23 @@ public class FavoritesRecyclerViewAdapter extends RecyclerView.Adapter<Favorites
         Picasso.get()
                 .load(currentItem.getRestaurantImage())
                 .into(holder.restaurantImage);
+
+        holder.restaurantImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, RestaurantInfoActivity.class);
+
+                // Passing data tto RestaurantInfoAcivity
+                intent.putExtra("imageUrl", currentItem.getRestaurantImage());
+                intent.putExtra("name", currentItem.getRestaurant());
+                intent.putExtra("address", currentItem.getAddress());
+                intent.putExtra("city", currentItem.getCity());
+                intent.putExtra("state", currentItem.getState());
+                intent.putExtra("zip code", currentItem.getZipCode());
+                intent.putExtra("phone", currentItem.getPhone());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
