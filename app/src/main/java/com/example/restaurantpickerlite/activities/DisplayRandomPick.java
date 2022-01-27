@@ -166,8 +166,8 @@ public class DisplayRandomPick extends AppCompatActivity {
                             if (jsonArray.length() == 0) {
 //                                testUid.append("No restaurants matches your criteria");
 //                                restaurantInfoName.append("No restaurants matches your criteria");
-                                Intent intent = new Intent(DisplayRandomPick.this, NoResultActivity.class);
-                                startActivity(intent);
+//                                Intent intent = new Intent(DisplayRandomPick.this, NoResultActivity.class);
+//                                startActivity(intent);
                             } else {
                                 Random random = new Random();
                                 int n = random.nextInt(jsonArray.length());

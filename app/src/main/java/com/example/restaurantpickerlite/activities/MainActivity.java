@@ -18,14 +18,28 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.restaurantpickerlite.R;
+import com.example.restaurantpickerlite.managers.FavoritesManager;
 import com.example.restaurantpickerlite.models.RestaurantItem;
 import com.example.restaurantpickerlite.managers.RestaurantManager;
+import com.squareup.picasso.Picasso;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener,
         AdapterView.OnItemSelectedListener {
@@ -108,6 +122,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
 
             Toast.makeText(MainActivity.this, "selected radio button is: " + milesRadius, Toast.LENGTH_SHORT).show();
+
+            jsonParse(milesRadius, edtZipCode.getText().toString(), openedNow, cuisines);
 
             Intent intent = new Intent(MainActivity.this, DisplayRandomPick.class);
             intent.putExtra("radius", milesRadius);
@@ -233,6 +249,63 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    private void jsonParse(String miles, String zip, String open, ArrayList<String> types) {
+        int milesToMeters = Integer.parseInt(miles) * 1609;
+        StringBuilder stringBuilder = new StringBuilder();
+        String startUrl = "https://api.yelp.com/v3/businesses/search?term=food&location=";
+        stringBuilder.append(startUrl).append(zip);
+        stringBuilder.append("&radius=").append(milesToMeters);
+
+        if (types.size() > 0) {
+            stringBuilder.append("&categories=");
+
+            for (int i = 0; i < types.size(); i++) {
+                if (i == types.size() - 1) {
+                    stringBuilder.append(types.get(i));
+                } else {
+                    stringBuilder.append(types.get(i)).append(",");
+                }
+            }
+        }
+
+        stringBuilder.append("&open_now=").append(open);
+
+        String url = stringBuilder.toString();
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            JSONArray jsonArray = response.getJSONArray("businesses");
+
+                            if (jsonArray.length() == 0) {
+                                Intent intent = new Intent(MainActivity.this, NoResultActivity.class);
+                                startActivity(intent);
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Authorization", "Bearer y43TARnbjXmLlswBS0FdDZqIFk9KytIpXuE2gOh_5LK2yLv2OxOkIvMV-Dng0uIf66p_" +
+                        "2eZtU9NZ46VrGrdUZMViBmjwySlFwbd_diB7S2dslBV4gwxw6kCQxTjRYHYx");
+                return headers;
+            }
+        };
+        requestQueue.add(request);
     }
 
 }
