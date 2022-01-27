@@ -125,13 +125,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
             jsonParse(milesRadius, edtZipCode.getText().toString(), openedNow, cuisines);
 
-            Intent intent = new Intent(MainActivity.this, DisplayRandomPick.class);
-            intent.putExtra("radius", milesRadius);
-            intent.putExtra("zipcode", edtZipCode.getText().toString());
-            intent.putExtra("opened", openedNow);
-            intent.putExtra("cuisines", cuisines);
-
-            startActivity(intent);
+//            Intent intent = new Intent(MainActivity.this, DisplayRandomPick.class);
+//            intent.putExtra("radius", milesRadius);
+//            intent.putExtra("zipcode", edtZipCode.getText().toString());
+//            intent.putExtra("opened", openedNow);
+//            intent.putExtra("cuisines", cuisines);
+//
+//            startActivity(intent);
         });
 
         clearButtonClicked();
@@ -283,6 +283,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
                             if (jsonArray.length() == 0) {
                                 Intent intent = new Intent(MainActivity.this, NoResultActivity.class);
+                                startActivity(intent);
+                            } else {
+                                Intent intent = new Intent(MainActivity.this, DisplayRandomPick.class);
+                                intent.putExtra("radius", miles);
+                                intent.putExtra("zipcode", zip);
+                                intent.putExtra("opened", open);
+                                intent.putExtra("cuisines", types);
+
                                 startActivity(intent);
                             }
 
