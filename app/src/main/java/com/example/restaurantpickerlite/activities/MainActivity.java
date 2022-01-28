@@ -285,11 +285,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                 Intent intent = new Intent(MainActivity.this, NoResultActivity.class);
                                 startActivity(intent);
                             } else {
+                                JSONObject entry = jsonArray.getJSONObject(0);
+                                String website = entry.getString("url");
                                 Intent intent = new Intent(MainActivity.this, DisplayRandomPick.class);
                                 intent.putExtra("radius", miles);
                                 intent.putExtra("zipcode", zip);
                                 intent.putExtra("opened", open);
                                 intent.putExtra("cuisines", types);
+                                intent.putExtra("website", website);
 
                                 startActivity(intent);
                             }
