@@ -42,7 +42,7 @@ public class DisplayRandomPick extends AppCompatActivity {
     private RequestQueue requestQueue;
     private String zipcode, radius, opened, address, website;
     private ArrayList<String> cuisines;
-    private Button btnShow, btnPickAgain;
+    private Button btnShow, btnPickAgain, websiteBtn;
     private ImageView restaurantImg;
     private ArrayList<RestaurantItem> restaurantList;
     private ToggleButton favoriteBtn;
@@ -68,6 +68,7 @@ public class DisplayRandomPick extends AppCompatActivity {
         address = "";
         restaurantList = new ArrayList<>();
         favoriteBtn = findViewById(R.id.favoriteBtn);
+        websiteBtn = findViewById(R.id.websiteBtn);
 
 
 
@@ -186,6 +187,15 @@ public class DisplayRandomPick extends AppCompatActivity {
                                 String phone = entry.getString("display_phone");
                                 String website = entry.getString("url");
 
+                                websiteBtn.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent intent = new Intent(DisplayRandomPick.this, RestaurantWebSite.class);
+                                        intent.putExtra("url", website);
+                                        startActivity(intent);
+                                    }
+                                });
+
                                 String cityStateZip = city + ", " + state + " " + zipcode;
 
 //                                DisplayRandomPick.this.address = address + ", " + city + " " + state;
@@ -195,8 +205,8 @@ public class DisplayRandomPick extends AppCompatActivity {
                                 restaurantInfoName.setText(name);
                                 restaurantInfoAddress.setText(address);
                                 restaurantInfoCity.setText(cityStateZip);
-//                                restaurantInfoPhone.setText(phone);
-                                restaurantInfoPhone.setText(website);
+                                restaurantInfoPhone.setText(phone);
+//                                restaurantInfoPhone.setText(website);
 
                                 Picasso.get()
                                         .load(url)
