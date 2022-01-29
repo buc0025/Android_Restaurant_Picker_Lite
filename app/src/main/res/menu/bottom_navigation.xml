@@ -8,7 +8,7 @@
 
     <item
         android:id="@+id/navigationHome"
-        android:icon="@drawable/ic_baseline_home_24"
+        android:icon="@drawable/ic_restaurant_prefs"
         android:title="Home" />
 
     <item

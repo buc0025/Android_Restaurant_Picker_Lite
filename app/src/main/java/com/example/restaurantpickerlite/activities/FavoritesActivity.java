@@ -57,6 +57,10 @@ public class FavoritesActivity extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), FavoritesActivity.class));
                         overridePendingTransition(0,0);
                         return true;
+                    case R.id.navigationHome:
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
                 }
                 return false;
             }
