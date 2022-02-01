@@ -189,7 +189,7 @@
             app:menu="@menu/bottom_navigation"
             app:layout_constraintBottom_toBottomOf="parent">
         </com.google.android.material.bottomnavigation.BottomNavigationView>
-        
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

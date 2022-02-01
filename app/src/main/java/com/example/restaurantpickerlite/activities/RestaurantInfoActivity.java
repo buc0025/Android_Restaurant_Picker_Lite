@@ -72,6 +72,7 @@ public class RestaurantInfoActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
 //        bottomNavigationView.setSelectedItemId(R.id.navigationFavorites);
+        bottomNavigationView.getMenu().setGroupCheckable(0, false, true);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -83,6 +84,10 @@ public class RestaurantInfoActivity extends AppCompatActivity {
                     case R.id.navigationFavorites:
                         startActivity(new Intent(getApplicationContext(), FavoritesActivity.class));
                         overridePendingTransition(0,0);
+                        return true;
+                    case R.id.navigationHome:
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        overridePendingTransition(0, 0);
                         return true;
                 }
                 return false;
