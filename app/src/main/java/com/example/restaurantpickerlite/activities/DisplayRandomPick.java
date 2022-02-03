@@ -142,7 +142,7 @@ public class DisplayRandomPick extends AppCompatActivity {
     private void jsonParse() {
         int milesToMeters = Integer.parseInt(radius) * 1609;
         StringBuilder stringBuilder = new StringBuilder();
-        String startUrl = "https://api.yelp.com/v3/businesses/search?term=food&location=";
+        String startUrl = "https://api.yelp.com/v3/businesses/search?term=restaurants&location=";
         stringBuilder.append(startUrl).append(zipcode);
         stringBuilder.append("&radius=").append(milesToMeters);
 

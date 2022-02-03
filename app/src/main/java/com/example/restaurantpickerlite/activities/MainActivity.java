@@ -292,7 +292,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private void jsonParse(String miles, String zip, String open, ArrayList<String> types) {
         int milesToMeters = Integer.parseInt(miles) * 1609;
         StringBuilder stringBuilder = new StringBuilder();
-        String startUrl = "https://api.yelp.com/v3/businesses/search?term=food&location=";
+        String startUrl = "https://api.yelp.com/v3/businesses/search?term=restaurants&location=";
         stringBuilder.append(startUrl).append(zip);
         stringBuilder.append("&radius=").append(milesToMeters);
 

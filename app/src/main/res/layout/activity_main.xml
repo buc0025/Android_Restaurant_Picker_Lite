@@ -107,6 +107,24 @@
                 android:layout_height="wrap_content"
                 android:text="Italian" />
 
+            <CheckBox
+                android:id="@+id/americanBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="American" />
+
+            <CheckBox
+                android:id="@+id/bbqBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="BBQ" />
+
+            <CheckBox
+                android:id="@+id/brazilianBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Brazilian" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -135,6 +153,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Korean" />
+
+            <CheckBox
+                android:id="@+id/frenchBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="French" />
+
+            <CheckBox
+                android:id="@+id/greekBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Greek" />
+
+            <CheckBox
+                android:id="@+id/mexicanBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mexican" />
 
         </LinearLayout>
 
