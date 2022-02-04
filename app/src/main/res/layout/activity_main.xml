@@ -22,15 +22,16 @@
         android:layout_alignParentBottom="true">
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:layout_above="@+id/bottomNavigation">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -91,6 +92,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textMilesRadius" />
 
+
         <TextView
             android:id="@+id/textViewCuisines"
             android:layout_width="wrap_content"
@@ -119,7 +121,8 @@
                 android:id="@+id/chineseBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Chinese" />
+                android:text="Chinese"
+                app:layout_constraintTop_toBottomOf="@id/textViewCuisines" />
 
             <CheckBox
                 android:id="@+id/japaneseBox"
@@ -146,28 +149,16 @@
                 android:text="BBQ" />
 
             <CheckBox
-                android:id="@+id/zBox"
+                android:id="@+id/vietnameseBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Brazilian" />
+                android:text="Vietnamese" />
 
             <CheckBox
-                android:id="@+id/aBox"
+                android:id="@+id/veganBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Brazilian" />
-
-            <CheckBox
-                android:id="@+id/brsBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Brazilian" />
-
-            <CheckBox
-                android:id="@+id/brwBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Brazilian" />
+                android:text="Vegan" />
 
         </LinearLayout>
 
@@ -216,6 +207,12 @@
                 android:layout_height="wrap_content"
                 android:text="Mexican" />
 
+            <CheckBox
+                android:id="@+id/thaiBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Thai" />
+
         </LinearLayout>
 
             <RadioGroup
@@ -223,7 +220,7 @@
                 android:layout_width="231dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:layout_constraintTop_toBottomOf="@+id/linLayout2"
+                app:layout_constraintTop_toBottomOf="@+id/linLayout1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
 
@@ -267,7 +264,7 @@
     </androidx.core.widget.NestedScrollView>
 <!--</ScrollView>-->
 
-    </RelativeLayout>
+<!--    </RelativeLayout>-->
 
 
 
