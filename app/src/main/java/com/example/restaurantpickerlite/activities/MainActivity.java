@@ -54,7 +54,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private RequestQueue requestQueue;
     private RadioGroup radioGroup;
     private RadioButton opened, closed;
-    private CheckBox chineseBox, japaneseBox, italianBox, indianBox, vegetarianBox, koreanBox;
+    private CheckBox chineseBox, japaneseBox, italianBox, indianBox, vegetarianBox, koreanBox, americanBox, bbqBox, vietnameseBox;
+    private CheckBox veganBox, frenchBox, greekBox, mexicanBox, thaiBox;
     private ArrayList<String> cuisines;
     private String milesRadius;
     private LinearLayout linearLayout1, linearLayout2;
@@ -84,6 +85,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         indianBox = findViewById(R.id.indianBox);
         vegetarianBox = findViewById(R.id.vegetarianBox);
         koreanBox = findViewById(R.id.koreanBox);
+        americanBox = findViewById(R.id.americanBox);
+        bbqBox = findViewById(R.id.bbqBox);
+        vietnameseBox = findViewById(R.id.vietnameseBox);
+        veganBox = findViewById(R.id.veganBox);
+        frenchBox = findViewById(R.id.frenchBox);
+        greekBox = findViewById(R.id.greekBox);
+        mexicanBox = findViewById(R.id.mexicanBox);
+        thaiBox = findViewById(R.id.thaiBox);
         cuisines = new ArrayList<>();
 
         btnClear = findViewById(R.id.btnClear);
@@ -238,6 +247,94 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     cuisines.add("korean");
                 } else {
                     cuisines.remove("korean");
+                }
+            }
+        });
+
+        americanBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (americanBox.isChecked()) {
+                    cuisines.add("american");
+                } else {
+                    cuisines.remove("american");
+                }
+            }
+        });
+
+        bbqBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (bbqBox.isChecked()) {
+                    cuisines.add("bbq");
+                } else {
+                    cuisines.remove("bbq");
+                }
+            }
+        });
+
+        vietnameseBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (vietnameseBox.isChecked()) {
+                    cuisines.add("vietnamese");
+                } else {
+                    cuisines.remove("vietnamese");
+                }
+            }
+        });
+
+        veganBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (veganBox.isChecked()) {
+                    cuisines.add("vegan");
+                } else {
+                    cuisines.remove("vegan");
+                }
+            }
+        });
+
+        frenchBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (frenchBox.isChecked()) {
+                    cuisines.add("french");
+                } else {
+                    cuisines.remove("french");
+                }
+            }
+        });
+
+        greekBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (greekBox.isChecked()) {
+                    cuisines.add("greek");
+                } else {
+                    cuisines.remove("greek");
+                }
+            }
+        });
+
+        mexicanBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mexicanBox.isChecked()) {
+                    cuisines.add("mexican");
+                } else {
+                    cuisines.remove("mexican");
+                }
+            }
+        });
+
+        thaiBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (thaiBox.isChecked()) {
+                    cuisines.add("thai");
+                } else {
+                    cuisines.remove("thai");
                 }
             }
         });
