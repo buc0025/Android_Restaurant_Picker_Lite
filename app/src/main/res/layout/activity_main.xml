@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignBottom="@+id/bottomNavigation"
+    android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
         tools:context=".activities.MainActivity"
         android:clickable="true"
         android:focusableInTouchMode="true">
@@ -120,7 +129,25 @@
                 android:text="BBQ" />
 
             <CheckBox
-                android:id="@+id/brazilianBox"
+                android:id="@+id/zBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Brazilian" />
+
+            <CheckBox
+                android:id="@+id/aBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Brazilian" />
+
+            <CheckBox
+                android:id="@+id/brsBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Brazilian" />
+
+            <CheckBox
+                android:id="@+id/brwBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Brazilian" />
@@ -218,15 +245,16 @@
             app:layout_constraintTop_toBottomOf="@+id/radioGroup"
             />
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/bottomNavigation"
-            app:menu="@menu/bottom_navigation"
-            app:layout_constraintBottom_toBottomOf="parent">
-        </com.google.android.material.bottomnavigation.BottomNavigationView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottomNavigation"
+        app:menu="@menu/bottom_navigation"
+        android:layout_alignParentBottom="true">
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+</RelativeLayout>
