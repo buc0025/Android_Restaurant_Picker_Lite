@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,7 +24,7 @@ public class RestaurantInfoActivity extends AppCompatActivity {
     ImageView restaurantInfoImg;
     TextView restaurantInfoName, restaurantInfoAddress, restaurantInfoCity, restaurantInfoPhone;
     ToggleButton favBtn;
-    Button websiteBtn;
+    Button websiteBtn, directionsBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,7 @@ public class RestaurantInfoActivity extends AppCompatActivity {
         restaurantInfoPhone = findViewById(R.id.restaurantInfoPhone);
         favBtn = findViewById(R.id.favoriteBtn);
         websiteBtn = findViewById(R.id.websiteBtn);
+        directionsBtn = findViewById(R.id.directionsBtn);
 
         Picasso.get().load(url).into(restaurantInfoImg);
         restaurantInfoName.setText(name);
@@ -80,6 +82,19 @@ public class RestaurantInfoActivity extends AppCompatActivity {
                 Intent intent = new Intent(RestaurantInfoActivity.this, RestaurantWebSite.class);
                 intent.putExtra("url", site);
                 startActivity(intent);
+            }
+        });
+
+        directionsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent maps = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("google.navigation:q=" + address));
+                maps.setPackage("com.google.android.apps.maps");
+
+                if (maps.resolveActivity(getPackageManager()) != null) {
+                    startActivity(maps);
+                }
             }
         });
 
