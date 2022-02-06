@@ -8,8 +8,9 @@ public class RestaurantItem {
     private String state;
     private String phone;
     private String restaurantImage;
+    private String webSite;
 
-    public RestaurantItem(String restaurant, String address, String city, String zipCode, String state, String phone, String restaurantImage) {
+    public RestaurantItem(String restaurant, String address, String city, String zipCode, String state, String phone, String restaurantImage, String webSite) {
         this.restaurant = restaurant;
         this.address = address;
         this.city = city;
@@ -17,6 +18,7 @@ public class RestaurantItem {
         this.state = state;
         this.phone = phone;
         this.restaurantImage = restaurantImage;
+        this.webSite = webSite;
     }
 
     public String getRestaurant() {
@@ -73,5 +75,13 @@ public class RestaurantItem {
 
     public void setRestaurantImage(String restaurantImage) {
         this.restaurantImage = restaurantImage;
+    }
+
+    public String getWebSite() {
+        return webSite;
+    }
+
+    public void setWebSite(String webSite) {
+        this.webSite = webSite;
     }
 }

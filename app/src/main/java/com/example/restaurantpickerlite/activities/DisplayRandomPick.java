@@ -105,10 +105,10 @@ public class DisplayRandomPick extends AppCompatActivity {
 //            Intent discover = new Intent(this, DiscoverActivity.class);
 //            startActivity(discover);
 
-            RestaurantManager restaurantManager = new RestaurantManager(DisplayRandomPick.this);
-            ArrayList<RestaurantItem> restaurantList = new ArrayList<>();
-            restaurantList = restaurantManager.getRestaurants();
-            restaurantManager.deleteRestaurants(restaurantList);
+//            RestaurantManager restaurantManager = new RestaurantManager(DisplayRandomPick.this);
+//            ArrayList<RestaurantItem> restaurantList = new ArrayList<>();
+//            restaurantList = restaurantManager.getRestaurants();
+//            restaurantManager.deleteRestaurants(restaurantList);
         });
 
         btnPickAgain.setOnClickListener(v -> {
@@ -218,7 +218,7 @@ public class DisplayRandomPick extends AppCompatActivity {
                                         .into(restaurantImg);
 
                                 RestaurantItem favoriteRestaurant = new RestaurantItem(name, address,
-                                        city, zipcode, state, phone, url);
+                                        city, zipcode, state, phone, url, website);
 
                                 FavoritesManager favoritesManager = new FavoritesManager(DisplayRandomPick.this);
                                 favoriteBtn.setOnClickListener(new View.OnClickListener() {
@@ -248,9 +248,11 @@ public class DisplayRandomPick extends AppCompatActivity {
                                     String restaurantZip = jsonObject.getString("zip_code");
                                     String restaurantState = jsonObject.getString("state");
                                     String restaurantPhone = restaurant.getString("display_phone");
+                                    String restaurantSite = restaurant.getString("url");
 
                                     RestaurantItem restaurantItem = new RestaurantItem(restaurantName, restaurantAddress,
-                                            restaurantCity, restaurantZip, restaurantState, restaurantPhone, restaurantImage);
+                                            restaurantCity, restaurantZip, restaurantState, restaurantPhone, restaurantImage,
+                                            restaurantSite);
 
                                     // Save restaurant item to shared preferences
                                     RestaurantManager restaurantManager = new RestaurantManager(DisplayRandomPick.this);

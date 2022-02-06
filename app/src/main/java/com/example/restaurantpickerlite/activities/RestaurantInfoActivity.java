@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +23,7 @@ public class RestaurantInfoActivity extends AppCompatActivity {
     ImageView restaurantInfoImg;
     TextView restaurantInfoName, restaurantInfoAddress, restaurantInfoCity, restaurantInfoPhone;
     ToggleButton favBtn;
+    Button websiteBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class RestaurantInfoActivity extends AppCompatActivity {
         String state = intent.getStringExtra("state");
         String zipCode = intent.getStringExtra("zip code");
         String phone = intent.getStringExtra("phone");
+        String site = intent.getStringExtra("site");
         String cityStateZip = city + ", " + state + " " + zipCode;
 
         restaurantInfoImg = findViewById(R.id.restaurantInfoImg);
@@ -44,6 +47,7 @@ public class RestaurantInfoActivity extends AppCompatActivity {
         restaurantInfoCity = findViewById(R.id.restaurantInfoCity);
         restaurantInfoPhone = findViewById(R.id.restaurantInfoPhone);
         favBtn = findViewById(R.id.favoriteBtn);
+        websiteBtn = findViewById(R.id.websiteBtn);
 
         Picasso.get().load(url).into(restaurantInfoImg);
         restaurantInfoName.setText(name);
@@ -52,7 +56,7 @@ public class RestaurantInfoActivity extends AppCompatActivity {
         restaurantInfoPhone.setText(phone);
 
         FavoritesManager favoritesManager = new FavoritesManager(RestaurantInfoActivity.this);
-        RestaurantItem restaurantItem = new RestaurantItem(name, address, city, zipCode, state, phone, url);
+        RestaurantItem restaurantItem = new RestaurantItem(name, address, city, zipCode, state, phone, url, site);
         favBtn.setChecked(favoritesManager.isFavorited(name));
 
         favBtn.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +71,15 @@ public class RestaurantInfoActivity extends AppCompatActivity {
                     favoritesManager.removeFavorite(restaurantItem);
                     favBtn.setChecked(false);
                 }
+            }
+        });
+
+        websiteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RestaurantInfoActivity.this, RestaurantWebSite.class);
+                intent.putExtra("url", site);
+                startActivity(intent);
             }
         });
 
