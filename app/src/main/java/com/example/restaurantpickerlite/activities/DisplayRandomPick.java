@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -42,7 +43,7 @@ public class DisplayRandomPick extends AppCompatActivity {
     private RequestQueue requestQueue;
     private String zipcode, radius, opened, address, website;
     private ArrayList<String> cuisines;
-    private Button btnShow, btnPickAgain, websiteBtn;
+    private Button btnShow, btnPickAgain, websiteBtn, directionsBtn;
     private ImageView restaurantImg;
     private ArrayList<RestaurantItem> restaurantList;
     private ToggleButton favoriteBtn;
@@ -62,13 +63,13 @@ public class DisplayRandomPick extends AppCompatActivity {
 //        mainMiles = findViewById(R.id.mainMiles);
 //        mainCuisine = findViewById(R.id.mainCuisine);
 //        mainOpened = findViewById(R.id.mainOpened);
-        btnShow = findViewById(R.id.btnShow);
         btnPickAgain = findViewById(R.id.btnPickAgain);
         restaurantImg = findViewById(R.id.restaurantImg);
         address = "";
         restaurantList = new ArrayList<>();
         favoriteBtn = findViewById(R.id.favoriteBtn);
         websiteBtn = findViewById(R.id.websiteBtn);
+        directionsBtn = findViewById(R.id.directionsBtn);
 
 
 
@@ -91,7 +92,7 @@ public class DisplayRandomPick extends AppCompatActivity {
 
         jsonParse();
 
-        btnShow.setOnClickListener(v -> {
+//        directionsBtn.setOnClickListener(v -> {
 //            Intent maps = new Intent(Intent.ACTION_VIEW,
 //                    Uri.parse("google.navigation:q=" + address));
 //            maps.setPackage("com.google.android.apps.maps");
@@ -109,7 +110,7 @@ public class DisplayRandomPick extends AppCompatActivity {
 //            ArrayList<RestaurantItem> restaurantList = new ArrayList<>();
 //            restaurantList = restaurantManager.getRestaurants();
 //            restaurantManager.deleteRestaurants(restaurantList);
-        });
+//        });
 
         btnPickAgain.setOnClickListener(v -> {
             jsonParse();
@@ -201,6 +202,20 @@ public class DisplayRandomPick extends AppCompatActivity {
                                 });
 
                                 String cityStateZip = city + ", " + state + " " + zipcode;
+
+                                directionsBtn.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+//                                        Intent maps = new Intent(Intent.ACTION_VIEW,
+//                                                Uri.parse("google.navigation:q=" + address + ", " + cityStateZip));
+//                                        maps.setPackage("com.google.android.apps.maps");
+//
+//                                        if (maps.resolveActivity(getPackageManager()) != null) {
+//                                            startActivity(maps);
+//                                        }
+                                        Toast.makeText(DisplayRandomPick.this, address+ ", " + cityStateZip, Toast.LENGTH_SHORT).show();
+                                    }
+                                });
 
 //                                DisplayRandomPick.this.address = address + ", " + city + " " + state;
 

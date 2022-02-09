@@ -100,14 +100,6 @@
                 android:layout_marginTop="20dp" />
 
             <Button
-                android:id="@+id/btnShow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Show"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"/>
-
-            <Button
                 android:id="@+id/btnPickAgain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
