@@ -33,6 +33,7 @@ public class RestaurantInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant_info);
 
+        // Getting intents from DiscoverRecyclerViewAdapter and FavoritesRecyclerViewAdapter
         Intent intent = getIntent();
         String url = intent.getStringExtra("imageUrl");
         String name = intent.getStringExtra("name");
@@ -42,6 +43,8 @@ public class RestaurantInfoActivity extends AppCompatActivity {
         String zipCode = intent.getStringExtra("zip code");
         String phone = intent.getStringExtra("phone");
         String site = intent.getStringExtra("site");
+//        double rating = intent.getDoubleExtra("rating", 3.5);
+        double rating = 4.5;
         String cityStateZip = city + ", " + state + " " + zipCode;
 
         restaurantInfoImg = findViewById(R.id.restaurantInfoImg);
@@ -54,7 +57,7 @@ public class RestaurantInfoActivity extends AppCompatActivity {
         directionsBtn = findViewById(R.id.directionsBtn);
         ratingBar = findViewById(R.id.ratingBar);
 
-        ratingBar.setRating((float) 3.5);
+        ratingBar.setRating((float) rating);
 
         Picasso.get().load(url).into(restaurantInfoImg);
         restaurantInfoName.setText(name);
@@ -63,7 +66,7 @@ public class RestaurantInfoActivity extends AppCompatActivity {
         restaurantInfoPhone.setText(phone);
 
         FavoritesManager favoritesManager = new FavoritesManager(RestaurantInfoActivity.this);
-        RestaurantItem restaurantItem = new RestaurantItem(name, address, city, zipCode, state, phone, url, site);
+        RestaurantItem restaurantItem = new RestaurantItem(name, address, city, zipCode, state, phone, url, site, rating);
         favBtn.setChecked(favoritesManager.isFavorited(name));
 
         favBtn.setOnClickListener(new View.OnClickListener() {

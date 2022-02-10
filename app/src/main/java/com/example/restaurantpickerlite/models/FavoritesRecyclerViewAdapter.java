@@ -70,7 +70,7 @@ public class FavoritesRecyclerViewAdapter extends RecyclerView.Adapter<Favorites
             public void onClick(View v) {
                 Intent intent = new Intent(context, RestaurantInfoActivity.class);
 
-                // Passing data tto RestaurantInfoAcivity
+                // Passing data to RestaurantInfoAcivity
                 intent.putExtra("imageUrl", currentItem.getRestaurantImage());
                 intent.putExtra("name", currentItem.getRestaurant());
                 intent.putExtra("address", currentItem.getAddress());
@@ -78,6 +78,7 @@ public class FavoritesRecyclerViewAdapter extends RecyclerView.Adapter<Favorites
                 intent.putExtra("state", currentItem.getState());
                 intent.putExtra("zip code", currentItem.getZipCode());
                 intent.putExtra("phone", currentItem.getPhone());
+                intent.putExtra("rating", currentItem.getRating());
                 context.startActivity(intent);
             }
         });

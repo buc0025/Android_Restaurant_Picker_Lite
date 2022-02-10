@@ -70,7 +70,7 @@ public class DiscoverRecyclerViewAdapter extends RecyclerView.Adapter<DiscoverRe
             public void onClick(View v) {
                 Intent intent = new Intent(context, RestaurantInfoActivity.class);
 
-                // Passing data tto RestaurantInfoAcivity
+                // Passing data to RestaurantInfoActivity
                 intent.putExtra("imageUrl", currentItem.getRestaurantImage());
                 intent.putExtra("name", currentItem.getRestaurant());
                 intent.putExtra("address", currentItem.getAddress());
@@ -79,6 +79,7 @@ public class DiscoverRecyclerViewAdapter extends RecyclerView.Adapter<DiscoverRe
                 intent.putExtra("zip code", currentItem.getZipCode());
                 intent.putExtra("phone", currentItem.getPhone());
                 intent.putExtra("site", currentItem.getWebSite());
+                intent.putExtra("rating", currentItem.getRating());
                 context.startActivity(intent);
             }
         });

@@ -161,6 +161,7 @@ public class DisplayRandomPick extends AppCompatActivity {
                             JSONObject entry = jsonArray.getJSONObject(n);
                             String name = entry.getString("name");
                             String url = entry.getString("image_url");
+                            double rating = entry.getDouble("rating");
 
                             // location object is an array that contains address elements
                             JSONObject location = entry.getJSONObject("location");
@@ -207,7 +208,7 @@ public class DisplayRandomPick extends AppCompatActivity {
                                     .into(restaurantImg);
 
                             RestaurantItem favoriteRestaurant = new RestaurantItem(name, address,
-                                    city, zipcode, state, phone, url, website);
+                                    city, zipcode, state, phone, url, website, rating);
 
                             FavoritesManager favoritesManager = new FavoritesManager(DisplayRandomPick.this);
                             favoriteBtn.setOnClickListener(new View.OnClickListener() {
@@ -241,7 +242,7 @@ public class DisplayRandomPick extends AppCompatActivity {
 
                                 RestaurantItem restaurantItem = new RestaurantItem(restaurantName, restaurantAddress,
                                         restaurantCity, restaurantZip, restaurantState, restaurantPhone, restaurantImage,
-                                        restaurantSite);
+                                        restaurantSite, rating);
 
                                 // Save restaurant item to shared preferences
                                 RestaurantManager restaurantManager = new RestaurantManager(DisplayRandomPick.this);
