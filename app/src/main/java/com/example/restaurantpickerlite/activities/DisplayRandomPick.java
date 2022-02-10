@@ -38,12 +38,12 @@ import java.util.Map;
 import java.util.Random;
 
 public class DisplayRandomPick extends AppCompatActivity {
-    private TextView testUid, mainZipCode, mainMiles, mainCuisine, mainOpened, restaurantInfoName, restaurantInfoAddress,
+    private TextView restaurantInfoName, restaurantInfoAddress,
             restaurantInfoCity, restaurantInfoPhone;;
     private RequestQueue requestQueue;
-    private String zipcode, radius, opened, address, website;
+    private String zipcode, radius, opened;
     private ArrayList<String> cuisines;
-    private Button btnShow, btnPickAgain, websiteBtn, directionsBtn;
+    private Button btnPickAgain, websiteBtn, directionsBtn;
     private ImageView restaurantImg;
     private ArrayList<RestaurantItem> restaurantList;
     private ToggleButton favoriteBtn;
@@ -58,37 +58,22 @@ public class DisplayRandomPick extends AppCompatActivity {
         restaurantInfoAddress = findViewById(R.id.restaurantInfoAddress);
         restaurantInfoCity = findViewById(R.id.restaurantInfoCity);
         restaurantInfoPhone = findViewById(R.id.restaurantInfoPhone);
-//        testUid = findViewById(R.id.testUid);
-//        mainZipCode = findViewById(R.id.mainZipCode);
-//        mainMiles = findViewById(R.id.mainMiles);
-//        mainCuisine = findViewById(R.id.mainCuisine);
-//        mainOpened = findViewById(R.id.mainOpened);
         btnPickAgain = findViewById(R.id.btnPickAgain);
         restaurantImg = findViewById(R.id.restaurantImg);
-        address = "";
         restaurantList = new ArrayList<>();
         favoriteBtn = findViewById(R.id.favoriteBtn);
         websiteBtn = findViewById(R.id.websiteBtn);
         directionsBtn = findViewById(R.id.directionsBtn);
 
-
-
-//        String url = "https://s3-media2.fl.yelpcdn.com/bphoto/KyELb2OMVcIVwXZA0QgWLw/o.jpg";
-//        Picasso.get().load(url).into(imageView);
-
         requestQueue = Volley.newRequestQueue(this);
 
+        // Get intent from main activity
         Intent intent = getIntent();
         zipcode = intent.getExtras().getString("zipcode");
         radius = intent.getExtras().getString("radius");
         opened = intent.getExtras().getString("opened");
 //        website = intent.getExtras().getString("website");
         cuisines = (ArrayList<String>) getIntent().getSerializableExtra("cuisines");
-
-//        mainZipCode.setText(zipcode);
-//        mainMiles.setText(radius);
-//        mainOpened.setText(opened);
-//        mainCuisine.setText(cuisines.get(0));
 
         jsonParse();
 
@@ -170,42 +155,36 @@ public class DisplayRandomPick extends AppCompatActivity {
                         try {
                             JSONArray jsonArray = response.getJSONArray("businesses");
 
-//                            if (jsonArray.length() == 0) {
-//                                testUid.append("No restaurants matches your criteria");
-//                                restaurantInfoName.append("No restaurants matches your criteria");
-//                                Intent intent = new Intent(DisplayRandomPick.this, NoResultActivity.class);
-//                                startActivity(intent);
-//                            } else {
-                                Random random = new Random();
-                                int n = random.nextInt(jsonArray.length());
-//                            for (int i = 0; i < 5; i++) {
-                                JSONObject entry = jsonArray.getJSONObject(n);
-                                String name = entry.getString("name");
-                                String url = entry.getString("image_url");
+                            Random random = new Random();
+                            int n = random.nextInt(jsonArray.length());
 
-                                // location object is an array that contains address elements
-                                JSONObject location = entry.getJSONObject("location");
-                                String address = location.getString("address1");
-                                String city = location.getString("city");
-                                String state = location.getString("state");
-                                String zipcode = location.getString("zip_code");
-                                String phone = entry.getString("display_phone");
-                                String website = entry.getString("url");
+                            JSONObject entry = jsonArray.getJSONObject(n);
+                            String name = entry.getString("name");
+                            String url = entry.getString("image_url");
 
-                                websiteBtn.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        Intent intent = new Intent(DisplayRandomPick.this, RestaurantWebSite.class);
-                                        intent.putExtra("url", website);
-                                        startActivity(intent);
-                                    }
-                                });
+                            // location object is an array that contains address elements
+                            JSONObject location = entry.getJSONObject("location");
+                            String address = location.getString("address1");
+                            String city = location.getString("city");
+                            String state = location.getString("state");
+                            String zipcode = location.getString("zip_code");
+                            String phone = entry.getString("display_phone");
+                            String website = entry.getString("url");
 
-                                String cityStateZip = city + ", " + state + " " + zipcode;
+                            websiteBtn.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Intent intent = new Intent(DisplayRandomPick.this, RestaurantWebSite.class);
+                                    intent.putExtra("url", website);
+                                    startActivity(intent);
+                                }
+                            });
 
-                                directionsBtn.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
+                            String cityStateZip = city + ", " + state + " " + zipcode;
+
+                            directionsBtn.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
 //                                        Intent maps = new Intent(Intent.ACTION_VIEW,
 //                                                Uri.parse("google.navigation:q=" + address + ", " + cityStateZip));
 //                                        maps.setPackage("com.google.android.apps.maps");
@@ -213,67 +192,61 @@ public class DisplayRandomPick extends AppCompatActivity {
 //                                        if (maps.resolveActivity(getPackageManager()) != null) {
 //                                            startActivity(maps);
 //                                        }
-                                        Toast.makeText(DisplayRandomPick.this, address+ ", " + cityStateZip, Toast.LENGTH_SHORT).show();
-                                    }
-                                });
-
-//                                DisplayRandomPick.this.address = address + ", " + city + " " + state;
-
-//                                testUid.append(name + "\n" + phone + "\n" + address + "\n" + city + ", " + state + " " + zipcode);
-
-                                restaurantInfoName.setText(name);
-                                restaurantInfoAddress.setText(address);
-                                restaurantInfoCity.setText(cityStateZip);
-                                restaurantInfoPhone.setText(phone);
-//                                restaurantInfoPhone.setText(website);
-
-                                Picasso.get()
-                                        .load(url)
-//                                        .resize(600, 500)
-                                        .into(restaurantImg);
-
-                                RestaurantItem favoriteRestaurant = new RestaurantItem(name, address,
-                                        city, zipcode, state, phone, url, website);
-
-                                FavoritesManager favoritesManager = new FavoritesManager(DisplayRandomPick.this);
-                                favoriteBtn.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        if (favoriteBtn.isChecked()) {
-                                            Toast.makeText(DisplayRandomPick.this, "restaurant favorited", Toast.LENGTH_SHORT).show();
-                                            favoritesManager.saveFavorite(favoriteRestaurant);
-                                            favoriteBtn.setChecked(true);
-                                        } else {
-                                            Toast.makeText(DisplayRandomPick.this, "restaurant unfavorited", Toast.LENGTH_SHORT).show();
-                                            favoritesManager.removeFavorite(favoriteRestaurant);
-                                            favoriteBtn.setChecked(false);
-                                        }
-                                    }
-                                });
-//                            }
-                                for (int i = 0; i < jsonArray.length(); i++) {
-                                    JSONObject restaurant = jsonArray.getJSONObject(i);
-                                    String restaurantName = restaurant.getString("name");
-                                    String restaurantImage = restaurant.getString("image_url");
-
-                                    // need to get location address
-                                    JSONObject jsonObject = restaurant.getJSONObject("location");
-                                    String restaurantAddress = jsonObject.getString("address1");
-                                    String restaurantCity = jsonObject.getString("city");
-                                    String restaurantZip = jsonObject.getString("zip_code");
-                                    String restaurantState = jsonObject.getString("state");
-                                    String restaurantPhone = restaurant.getString("display_phone");
-                                    String restaurantSite = restaurant.getString("url");
-
-                                    RestaurantItem restaurantItem = new RestaurantItem(restaurantName, restaurantAddress,
-                                            restaurantCity, restaurantZip, restaurantState, restaurantPhone, restaurantImage,
-                                            restaurantSite);
-
-                                    // Save restaurant item to shared preferences
-                                    RestaurantManager restaurantManager = new RestaurantManager(DisplayRandomPick.this);
-                                    restaurantManager.saveRestaurant(restaurantItem);
+                                    Toast.makeText(DisplayRandomPick.this, address + ", " + cityStateZip, Toast.LENGTH_SHORT).show();
                                 }
-//                            }
+                            });
+
+                            restaurantInfoName.setText(name);
+                            restaurantInfoAddress.setText(address);
+                            restaurantInfoCity.setText(cityStateZip);
+                            restaurantInfoPhone.setText(phone);
+
+                            Picasso.get()
+                                    .load(url)
+//                                        .resize(600, 500)
+                                    .into(restaurantImg);
+
+                            RestaurantItem favoriteRestaurant = new RestaurantItem(name, address,
+                                    city, zipcode, state, phone, url, website);
+
+                            FavoritesManager favoritesManager = new FavoritesManager(DisplayRandomPick.this);
+                            favoriteBtn.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    if (favoriteBtn.isChecked()) {
+                                        Toast.makeText(DisplayRandomPick.this, "restaurant favorited", Toast.LENGTH_SHORT).show();
+                                        favoritesManager.saveFavorite(favoriteRestaurant);
+                                        favoriteBtn.setChecked(true);
+                                    } else {
+                                        Toast.makeText(DisplayRandomPick.this, "restaurant unfavorited", Toast.LENGTH_SHORT).show();
+                                        favoritesManager.removeFavorite(favoriteRestaurant);
+                                        favoriteBtn.setChecked(false);
+                                    }
+                                }
+                            });
+                            // Loop through all restaurants and save to shared prefs
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject restaurant = jsonArray.getJSONObject(i);
+                                String restaurantName = restaurant.getString("name");
+                                String restaurantImage = restaurant.getString("image_url");
+
+                                // need to get location address
+                                JSONObject jsonObject = restaurant.getJSONObject("location");
+                                String restaurantAddress = jsonObject.getString("address1");
+                                String restaurantCity = jsonObject.getString("city");
+                                String restaurantZip = jsonObject.getString("zip_code");
+                                String restaurantState = jsonObject.getString("state");
+                                String restaurantPhone = restaurant.getString("display_phone");
+                                String restaurantSite = restaurant.getString("url");
+
+                                RestaurantItem restaurantItem = new RestaurantItem(restaurantName, restaurantAddress,
+                                        restaurantCity, restaurantZip, restaurantState, restaurantPhone, restaurantImage,
+                                        restaurantSite);
+
+                                // Save restaurant item to shared preferences
+                                RestaurantManager restaurantManager = new RestaurantManager(DisplayRandomPick.this);
+                                restaurantManager.saveRestaurant(restaurantItem);
+                            }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
