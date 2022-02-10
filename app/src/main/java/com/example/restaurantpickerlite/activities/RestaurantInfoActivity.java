@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -25,6 +26,7 @@ public class RestaurantInfoActivity extends AppCompatActivity {
     TextView restaurantInfoName, restaurantInfoAddress, restaurantInfoCity, restaurantInfoPhone;
     ToggleButton favBtn;
     Button websiteBtn, directionsBtn;
+    RatingBar ratingBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,9 @@ public class RestaurantInfoActivity extends AppCompatActivity {
         favBtn = findViewById(R.id.favoriteBtn);
         websiteBtn = findViewById(R.id.websiteBtn);
         directionsBtn = findViewById(R.id.directionsBtn);
+        ratingBar = findViewById(R.id.ratingBar);
+
+        ratingBar.setRating((float) 3.5);
 
         Picasso.get().load(url).into(restaurantInfoImg);
         restaurantInfoName.setText(name);

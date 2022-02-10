@@ -72,6 +72,12 @@
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+
             <Button
                 android:id="@+id/websiteBtn"
                 android:layout_width="wrap_content"
