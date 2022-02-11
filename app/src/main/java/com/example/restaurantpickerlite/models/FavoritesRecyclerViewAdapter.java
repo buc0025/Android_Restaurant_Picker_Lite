@@ -78,6 +78,7 @@ public class FavoritesRecyclerViewAdapter extends RecyclerView.Adapter<Favorites
                 intent.putExtra("state", currentItem.getState());
                 intent.putExtra("zip code", currentItem.getZipCode());
                 intent.putExtra("phone", currentItem.getPhone());
+                intent.putExtra("site", currentItem.getWebSite());
                 intent.putExtra("rating", currentItem.getRating());
                 context.startActivity(intent);
             }

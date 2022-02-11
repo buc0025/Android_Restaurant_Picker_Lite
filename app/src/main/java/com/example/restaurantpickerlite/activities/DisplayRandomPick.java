@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -47,6 +48,7 @@ public class DisplayRandomPick extends AppCompatActivity {
     private ImageView restaurantImg;
     private ArrayList<RestaurantItem> restaurantList;
     private ToggleButton favoriteBtn;
+    private RatingBar ratingBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +66,7 @@ public class DisplayRandomPick extends AppCompatActivity {
         favoriteBtn = findViewById(R.id.favoriteBtn);
         websiteBtn = findViewById(R.id.websiteBtn);
         directionsBtn = findViewById(R.id.directionsBtn);
+        ratingBar = findViewById(R.id.ratingBar);
 
         requestQueue = Volley.newRequestQueue(this);
 
@@ -171,6 +174,8 @@ public class DisplayRandomPick extends AppCompatActivity {
                             String zipcode = location.getString("zip_code");
                             String phone = entry.getString("display_phone");
                             String website = entry.getString("url");
+
+                            ratingBar.setRating((float) rating);
 
                             websiteBtn.setOnClickListener(new View.OnClickListener() {
                                 @Override

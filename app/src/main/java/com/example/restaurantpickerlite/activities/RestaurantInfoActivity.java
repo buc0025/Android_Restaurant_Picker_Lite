@@ -22,11 +22,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.squareup.picasso.Picasso;
 
 public class RestaurantInfoActivity extends AppCompatActivity {
-    ImageView restaurantInfoImg;
-    TextView restaurantInfoName, restaurantInfoAddress, restaurantInfoCity, restaurantInfoPhone;
-    ToggleButton favBtn;
-    Button websiteBtn, directionsBtn;
-    RatingBar ratingBar;
+    private ImageView restaurantInfoImg;
+    private TextView restaurantInfoName, restaurantInfoAddress, restaurantInfoCity, restaurantInfoPhone;
+    private ToggleButton favBtn;
+    private Button websiteBtn, directionsBtn;
+    private RatingBar ratingBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +44,8 @@ public class RestaurantInfoActivity extends AppCompatActivity {
         String phone = intent.getStringExtra("phone");
         String site = intent.getStringExtra("site");
 //        double rating = intent.getDoubleExtra("rating", 3.5);
-        double rating = 4.5;
+        double rating = intent.getDoubleExtra("rating", 0);
+//        double rating = 4.5;
         String cityStateZip = city + ", " + state + " " + zipCode;
 
         restaurantInfoImg = findViewById(R.id.restaurantInfoImg);
