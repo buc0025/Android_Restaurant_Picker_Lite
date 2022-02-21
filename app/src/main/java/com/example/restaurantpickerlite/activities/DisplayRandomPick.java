@@ -244,10 +244,11 @@ public class DisplayRandomPick extends AppCompatActivity {
                                 String restaurantState = jsonObject.getString("state");
                                 String restaurantPhone = restaurant.getString("display_phone");
                                 String restaurantSite = restaurant.getString("url");
+                                double restaurantRating = restaurant.getDouble("rating");
 
                                 RestaurantItem restaurantItem = new RestaurantItem(restaurantName, restaurantAddress,
                                         restaurantCity, restaurantZip, restaurantState, restaurantPhone, restaurantImage,
-                                        restaurantSite, rating);
+                                        restaurantSite, restaurantRating);
 
                                 // Save restaurant item to shared preferences
                                 RestaurantManager restaurantManager = new RestaurantManager(DisplayRandomPick.this);
