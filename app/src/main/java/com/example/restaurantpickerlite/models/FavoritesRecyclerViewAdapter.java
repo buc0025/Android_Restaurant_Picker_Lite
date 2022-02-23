@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -27,6 +28,7 @@ public class FavoritesRecyclerViewAdapter extends RecyclerView.Adapter<Favorites
         public TextView favoriteRestaurantCity;
         public TextView favoriteRestaurantPhone;
         public ImageView restaurantImage;
+        public RatingBar ratingBar;
 
         public FavoritesViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -35,6 +37,7 @@ public class FavoritesRecyclerViewAdapter extends RecyclerView.Adapter<Favorites
             favoriteRestaurantCity = itemView.findViewById(R.id.discoverRestaurantCity);
             favoriteRestaurantPhone = itemView.findViewById(R.id.discoverRestaurantPhone);
             restaurantImage = itemView.findViewById(R.id.restaurantImage);
+            ratingBar = itemView.findViewById(R.id.ratingBar);
         }
     }
 
@@ -60,6 +63,7 @@ public class FavoritesRecyclerViewAdapter extends RecyclerView.Adapter<Favorites
         holder.favoriteRestaurantAddress.setText(currentItem.getAddress());
         holder.favoriteRestaurantCity.setText(city);
         holder.favoriteRestaurantPhone.setText(currentItem.getPhone());
+        holder.ratingBar.setRating((float) currentItem.getRating());
 
         Picasso.get()
                 .load(currentItem.getRestaurantImage())

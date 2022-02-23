@@ -216,6 +216,13 @@ public class DisplayRandomPick extends AppCompatActivity {
                                     city, zipcode, state, phone, url, website, rating);
 
                             FavoritesManager favoritesManager = new FavoritesManager(DisplayRandomPick.this);
+
+                            if (favoritesManager.isFavorited(favoriteRestaurant.getRestaurant())) {
+                                favoriteBtn.setChecked(true);
+                            } else {
+                                favoriteBtn.setChecked(false);
+                            }
+
                             favoriteBtn.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
