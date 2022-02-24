@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/pink_stripe">
+    android:background="@color/light_red">
 
 <!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"-->
 <!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
@@ -116,51 +116,57 @@
             android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="@id/radioGroup"
             app:layout_constraintStart_toStartOf="@id/guideline1"
-            app:layout_constraintTop_toBottomOf="@id/textViewCuisines"
-            android:background="@color/white">
+            app:layout_constraintTop_toBottomOf="@id/textViewCuisines">
 
             <CheckBox
                 android:id="@+id/chineseBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Chinese"
+                android:buttonTint="@color/white"
                 app:layout_constraintTop_toBottomOf="@id/textViewCuisines" />
 
             <CheckBox
                 android:id="@+id/japaneseBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Japanese"/>
+                android:text="Japanese"
+                android:buttonTint="@color/white"/>
 
             <CheckBox
                 android:id="@+id/italianBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Italian" />
+                android:text="Italian"
+                android:buttonTint="@color/white"/>
 
             <CheckBox
                 android:id="@+id/americanBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="American" />
+                android:text="American"
+                android:buttonTint="@color/white"/>
 
             <CheckBox
                 android:id="@+id/bbqBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="BBQ" />
+                android:text="BBQ"
+                android:buttonTint="@color/white"/>
 
             <CheckBox
                 android:id="@+id/vietnameseBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Vietnamese" />
+                android:text="Vietnamese"
+                android:buttonTint="@color/white"/>
 
             <CheckBox
                 android:id="@+id/veganBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Vegan" />
+                android:text="Vegan"
+                android:buttonTint="@color/white"/>
 
         </LinearLayout>
 
@@ -177,43 +183,50 @@
                 android:id="@+id/indianBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Indian" />
+                android:text="Indian"
+                android:buttonTint="@color/white"/>
 
             <CheckBox
                 android:id="@+id/vegetarianBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Vegetarian" />
+                android:text="Vegetarian"
+                android:buttonTint="@color/white"/>
 
             <CheckBox
                 android:id="@+id/koreanBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Korean" />
+                android:text="Korean"
+                android:buttonTint="@color/white"/>
 
             <CheckBox
                 android:id="@+id/frenchBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="French" />
+                android:text="French"
+                android:buttonTint="@color/white"/>
 
             <CheckBox
                 android:id="@+id/greekBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Greek" />
+                android:text="Greek"
+                android:buttonTint="@color/white"/>
 
             <CheckBox
                 android:id="@+id/mexicanBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Mexican" />
+                android:text="Mexican"
+                android:buttonTint="@color/white"/>
 
             <CheckBox
                 android:id="@+id/thaiBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Thai" />
+                android:text="Thai"
+                android:buttonTint="@color/white"/>
 
         </LinearLayout>
 
