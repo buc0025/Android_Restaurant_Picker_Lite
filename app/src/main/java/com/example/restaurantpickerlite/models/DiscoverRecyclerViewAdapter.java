@@ -10,6 +10,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.restaurantpickerlite.R;
@@ -29,6 +30,7 @@ public class DiscoverRecyclerViewAdapter extends RecyclerView.Adapter<DiscoverRe
         public TextView discoverRestaurantPhone;
         public ImageView restaurantImage;
         public RatingBar ratingBar;
+        public CardView restaurantCardView;
 
         public DiscoverViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -38,6 +40,7 @@ public class DiscoverRecyclerViewAdapter extends RecyclerView.Adapter<DiscoverRe
             discoverRestaurantPhone = itemView.findViewById(R.id.discoverRestaurantPhone);
             restaurantImage = itemView.findViewById(R.id.restaurantImage);
             ratingBar = itemView.findViewById(R.id.ratingBar);
+            restaurantCardView = itemView.findViewById(R.id.restaurantCardView);
         }
     }
 
@@ -69,7 +72,26 @@ public class DiscoverRecyclerViewAdapter extends RecyclerView.Adapter<DiscoverRe
                 .load(currentItem.getRestaurantImage())
                 .into(holder.restaurantImage);
 
-        holder.restaurantImage.setOnClickListener(new View.OnClickListener() {
+//        holder.restaurantImage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(context, RestaurantInfoActivity.class);
+//
+//                // Passing data to RestaurantInfoActivity
+//                intent.putExtra("imageUrl", currentItem.getRestaurantImage());
+//                intent.putExtra("name", currentItem.getRestaurant());
+//                intent.putExtra("address", currentItem.getAddress());
+//                intent.putExtra("city", currentItem.getCity());
+//                intent.putExtra("state", currentItem.getState());
+//                intent.putExtra("zip code", currentItem.getZipCode());
+//                intent.putExtra("phone", currentItem.getPhone());
+//                intent.putExtra("site", currentItem.getWebSite());
+//                intent.putExtra("rating", currentItem.getRating());
+//                context.startActivity(intent);
+//            }
+//        });
+
+        holder.restaurantCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, RestaurantInfoActivity.class);

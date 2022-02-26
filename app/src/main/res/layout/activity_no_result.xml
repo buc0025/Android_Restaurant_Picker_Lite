@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.NoResultActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/pink_blurred">
 
     <TextView
         android:layout_width="wrap_content"
@@ -13,8 +14,10 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="13dp"
+        android:padding="8dp"
         android:text="No restaurants matches your criteria"
-        android:textSize="20sp" />
+        android:textSize="30sp"
+        android:textColor="@color/white"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
