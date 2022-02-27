@@ -76,8 +76,7 @@
             android:textColor="@color/white"
             android:textSize="25sp"
             app:layout_constraintStart_toStartOf="@id/guideline2"
-            app:layout_constraintTop_toTopOf="parent"
-            android:fontFamily="@font/shizuru_regular"/>
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <EditText
             android:id="@+id/edtZipCode"
@@ -86,9 +85,12 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="16dp"
-            android:ems="10"
+            android:ems="5"
             android:hint="ex. 02170"
             android:inputType="number"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.545"
             app:layout_constraintStart_toStartOf="parent"
@@ -103,12 +105,13 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="40dp"
             android:text="Cuisines"
-            android:textSize="20sp"
+            android:textSize="30sp"
             android:textColor="@color/white"
             android:paddingBottom="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edtZipCode" />
+            app:layout_constraintTop_toBottomOf="@+id/edtZipCode"
+            android:fontFamily="@font/marker_regular"/>
 
         <LinearLayout
             android:id="@+id/linLayout1"
@@ -124,6 +127,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Chinese"
+                android:fontFamily="@font/caveat_variable_wght"
+                android:textColor="@color/white"
+                android:textSize="25sp"
                 android:buttonTint="@color/white"
                 app:layout_constraintTop_toBottomOf="@id/textViewCuisines" />
 
@@ -132,6 +138,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Japanese"
+                android:fontFamily="@font/caveat_variable_wght"
+                android:textColor="@color/white"
+                android:textSize="25sp"
                 android:buttonTint="@color/white"/>
 
             <CheckBox
@@ -139,6 +148,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Italian"
+                android:fontFamily="@font/caveat_variable_wght"
+                android:textColor="@color/white"
+                android:textSize="25sp"
                 android:buttonTint="@color/white"/>
 
             <CheckBox
@@ -146,6 +158,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="American"
+                android:fontFamily="@font/caveat_variable_wght"
+                android:textColor="@color/white"
+                android:textSize="25sp"
                 android:buttonTint="@color/white"/>
 
             <CheckBox
@@ -153,6 +168,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="BBQ"
+                android:fontFamily="@font/caveat_variable_wght"
+                android:textColor="@color/white"
+                android:textSize="25sp"
                 android:buttonTint="@color/white"/>
 
             <CheckBox
@@ -160,6 +178,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Vietnamese"
+                android:fontFamily="@font/caveat_variable_wght"
+                android:textColor="@color/white"
+                android:textSize="25sp"
                 android:buttonTint="@color/white"/>
 
             <CheckBox
@@ -167,6 +188,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Vegan"
+                android:fontFamily="@font/caveat_variable_wght"
+                android:textColor="@color/white"
+                android:textSize="25sp"
                 android:buttonTint="@color/white"/>
 
         </LinearLayout>
@@ -185,6 +209,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Indian"
+                android:fontFamily="@font/caveat_variable_wght"
+                android:textColor="@color/white"
+                android:textSize="25sp"
                 android:buttonTint="@color/white"/>
 
             <CheckBox
@@ -192,6 +219,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Vegetarian"
+                android:fontFamily="@font/caveat_variable_wght"
+                android:textColor="@color/white"
+                android:textSize="25sp"
                 android:buttonTint="@color/white"/>
 
             <CheckBox
@@ -199,6 +229,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Korean"
+                android:fontFamily="@font/caveat_variable_wght"
+                android:textColor="@color/white"
+                android:textSize="25sp"
                 android:buttonTint="@color/white"/>
 
             <CheckBox
@@ -206,6 +239,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="French"
+                android:fontFamily="@font/caveat_variable_wght"
+                android:textColor="@color/white"
+                android:textSize="25sp"
                 android:buttonTint="@color/white"/>
 
             <CheckBox
@@ -213,6 +249,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Greek"
+                android:fontFamily="@font/caveat_variable_wght"
+                android:textColor="@color/white"
+                android:textSize="25sp"
                 android:buttonTint="@color/white"/>
 
             <CheckBox
@@ -220,6 +259,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Mexican"
+                android:fontFamily="@font/caveat_variable_wght"
+                android:textColor="@color/white"
+                android:textSize="25sp"
                 android:buttonTint="@color/white"/>
 
             <CheckBox
@@ -227,6 +269,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Thai"
+                android:fontFamily="@font/caveat_variable_wght"
+                android:textColor="@color/white"
+                android:textSize="25sp"
                 android:buttonTint="@color/white"/>
 
         </LinearLayout>
