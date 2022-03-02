@@ -11,20 +11,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RestaurantPickerLite">
-        <activity android:name=".activities.RestaurantWebSite"></activity>
+<!--        <activity android:name=".activities.SplashScreenActivity"></activity>-->
+        <activity android:name=".activities.RestaurantWebSite" />
         <activity android:name=".activities.NoResultActivity" />
         <activity android:name=".activities.FavoritesActivity" />
         <activity android:name=".activities.RestaurantInfoActivity" />
         <activity android:name=".activities.DiscoverActivity" />
         <activity android:name=".models.DiscoverActivity" />
         <activity android:name=".activities.DisplayRandomPick" />
-        <activity android:name=".activities.MainActivity">
+        <activity android:name=".activities.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.MainActivity"/>
     </application>
 
 </manifest>

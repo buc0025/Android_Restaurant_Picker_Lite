@@ -74,7 +74,8 @@
             android:layout_gravity="center"
             android:layout_marginStart="8dp"
             android:layout_toEndOf="@+id/spaceBetweenImg"
-            android:isIndicator="true" />
+            android:isIndicator="true"
+            android:progressTint="@color/orange" />
 
     </RelativeLayout>
 
