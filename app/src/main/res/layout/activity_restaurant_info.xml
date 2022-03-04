@@ -107,7 +107,6 @@
                 android:textOff=""
                 android:textOn="" />
 
-
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
@@ -120,6 +119,5 @@
         app:menu="@menu/bottom_navigation">
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
-
     
 </RelativeLayout>
