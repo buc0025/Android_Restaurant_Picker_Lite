@@ -165,8 +165,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 openedNow = "false";
             }
 
-            Toast.makeText(MainActivity.this, "selected radio button is: " + milesRadius, Toast.LENGTH_SHORT).show();
-
             jsonParse(milesRadius, edtZipCode.getText().toString(), openedNow, cuisines);
         });
 
