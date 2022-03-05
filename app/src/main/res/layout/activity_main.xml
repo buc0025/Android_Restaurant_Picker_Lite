@@ -278,13 +278,19 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:text="opened" />
+                        android:text="Opened"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"/>
 
                     <RadioButton
                         android:id="@+id/closed"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="closed" />
+                        android:text="Closed"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"/>
             </RadioGroup>
 
         <Button

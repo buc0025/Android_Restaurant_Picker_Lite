@@ -89,11 +89,11 @@ public class DisplayRandomPick extends AppCompatActivity {
 //                startActivity(maps);
 //            }
 //            Toast.makeText(this, address, Toast.LENGTH_LONG).show();
-
-            // Opens discover tab
+//
+//             Opens discover tab
 //            Intent discover = new Intent(this, DiscoverActivity.class);
 //            startActivity(discover);
-
+//
 //            RestaurantManager restaurantManager = new RestaurantManager(DisplayRandomPick.this);
 //            ArrayList<RestaurantItem> restaurantList = new ArrayList<>();
 //            restaurantList = restaurantManager.getRestaurants();
@@ -191,13 +191,13 @@ public class DisplayRandomPick extends AppCompatActivity {
                             directionsBtn.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-//                                        Intent maps = new Intent(Intent.ACTION_VIEW,
-//                                                Uri.parse("google.navigation:q=" + address + ", " + cityStateZip));
-//                                        maps.setPackage("com.google.android.apps.maps");
-//
-//                                        if (maps.resolveActivity(getPackageManager()) != null) {
-//                                            startActivity(maps);
-//                                        }
+                                        Intent maps = new Intent(Intent.ACTION_VIEW,
+                                                Uri.parse("google.navigation:q=" + address + ", " + cityStateZip));
+                                        maps.setPackage("com.google.android.apps.maps");
+
+                                        if (maps.resolveActivity(getPackageManager()) != null) {
+                                            startActivity(maps);
+                                        }
                                     Toast.makeText(DisplayRandomPick.this, address + ", " + cityStateZip, Toast.LENGTH_SHORT).show();
                                 }
                             });

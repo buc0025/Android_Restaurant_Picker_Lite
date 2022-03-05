@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="164dp"
+        android:layout_marginTop="216dp"
         android:text="Restaurant Picker"
         android:textColor="@color/red_orange"
         android:textSize="40sp"
