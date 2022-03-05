@@ -72,25 +72,6 @@ public class FavoritesRecyclerViewAdapter extends RecyclerView.Adapter<Favorites
                 .load(currentItem.getRestaurantImage())
                 .into(holder.restaurantImage);
 
-//        holder.restaurantImage.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(context, RestaurantInfoActivity.class);
-//
-//                // Passing data to RestaurantInfoAcivity
-//                intent.putExtra("imageUrl", currentItem.getRestaurantImage());
-//                intent.putExtra("name", currentItem.getRestaurant());
-//                intent.putExtra("address", currentItem.getAddress());
-//                intent.putExtra("city", currentItem.getCity());
-//                intent.putExtra("state", currentItem.getState());
-//                intent.putExtra("zip code", currentItem.getZipCode());
-//                intent.putExtra("phone", currentItem.getPhone());
-//                intent.putExtra("site", currentItem.getWebSite());
-//                intent.putExtra("rating", currentItem.getRating());
-//                context.startActivity(intent);
-//            }
-//        });
-
         holder.restaurantCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

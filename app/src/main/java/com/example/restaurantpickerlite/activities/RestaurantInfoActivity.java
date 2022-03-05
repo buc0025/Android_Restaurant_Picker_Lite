@@ -43,9 +43,7 @@ public class RestaurantInfoActivity extends AppCompatActivity {
         String zipCode = intent.getStringExtra("zip code");
         String phone = intent.getStringExtra("phone");
         String site = intent.getStringExtra("site");
-//        double rating = intent.getDoubleExtra("rating", 3.5);
         double rating = intent.getDoubleExtra("rating", 0);
-//        double rating = 4.5;
         String cityStateZip = city + ", " + state + " " + zipCode;
 
         restaurantInfoImg = findViewById(R.id.restaurantInfoImg);
@@ -108,7 +106,6 @@ public class RestaurantInfoActivity extends AppCompatActivity {
         });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
-//        bottomNavigationView.setSelectedItemId(R.id.navigationFavorites);
         bottomNavigationView.getMenu().setGroupCheckable(0, false, true);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

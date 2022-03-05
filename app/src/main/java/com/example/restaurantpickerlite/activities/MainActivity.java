@@ -114,8 +114,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.navigationDiscover:
-//                        startActivity(new Intent(getApplicationContext(), DiscoverActivity.class));
-//                        overridePendingTransition(0,0);
                         Toast.makeText(MainActivity.this, "Must apply fields", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.navigationFavorites:
@@ -123,7 +121,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.navigationHome:
-//                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         overridePendingTransition(0, 0);
                         return true;
                 }
@@ -171,14 +168,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             Toast.makeText(MainActivity.this, "selected radio button is: " + milesRadius, Toast.LENGTH_SHORT).show();
 
             jsonParse(milesRadius, edtZipCode.getText().toString(), openedNow, cuisines);
-
-//            Intent intent = new Intent(MainActivity.this, DisplayRandomPick.class);
-//            intent.putExtra("radius", milesRadius);
-//            intent.putExtra("zipcode", edtZipCode.getText().toString());
-//            intent.putExtra("opened", openedNow);
-//            intent.putExtra("cuisines", cuisines);
-//
-//            startActivity(intent);
         });
 
         clearButtonClicked();
