@@ -161,7 +161,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             int radioId = radioGroup.getCheckedRadioButtonId();
             opened = findViewById(radioId);
             String openedNow = "true";
-            if (opened.getText().equals("closed")) {
+            if (opened.getText().equals("Closed")) {
                 openedNow = "false";
             }
 
