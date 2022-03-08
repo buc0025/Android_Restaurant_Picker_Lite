@@ -106,7 +106,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@id/radioGroup"
+            app:layout_constraintBottom_toTopOf="@id/openedNow"
             app:layout_constraintStart_toStartOf="@id/guideline1"
             app:layout_constraintTop_toBottomOf="@id/textViewCuisines">
 
@@ -188,7 +188,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@id/radioGroup"
+            app:layout_constraintBottom_toTopOf="@id/openedNow"
             app:layout_constraintStart_toStartOf="@id/guideline2"
             app:layout_constraintTop_toBottomOf="@id/textViewCuisines">
 
@@ -275,34 +275,34 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 
-            <RadioGroup
-                android:id="@+id/radioGroup"
-                android:layout_width="231dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:layout_constraintTop_toBottomOf="@+id/linLayout1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
+<!--            <RadioGroup-->
+<!--                android:id="@+id/radioGroup"-->
+<!--                android:layout_width="231dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="16dp"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/linLayout1"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent">-->
 
-                    <RadioButton
-                        android:id="@+id/opened"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:checked="true"
-                        android:text="Opened"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"/>
+<!--                    <RadioButton-->
+<!--                        android:id="@+id/opened"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:checked="true"-->
+<!--                        android:text="Opened"-->
+<!--                        android:textSize="18sp"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:textColor="@color/white"/>-->
 
-                    <RadioButton
-                        android:id="@+id/closed"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Closed"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"/>
-            </RadioGroup>
+<!--                    <RadioButton-->
+<!--                        android:id="@+id/closed"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Closed"-->
+<!--                        android:textSize="18sp"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:textColor="@color/white"/>-->
+<!--            </RadioGroup>-->
 
         <Button
             android:id="@+id/btnClear"
@@ -310,7 +310,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:text="Clear"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+            app:layout_constraintTop_toBottomOf="@+id/openedNow"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
@@ -322,7 +322,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+            app:layout_constraintTop_toBottomOf="@+id/openedNow"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

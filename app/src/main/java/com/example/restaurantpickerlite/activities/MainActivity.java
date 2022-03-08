@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private String zipCode;
     private List<String> cuisineList;
     private String restaurantId;
+    private CheckBox openedNow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         btnApply = findViewById(R.id.btnApply);
         edtZipCode = findViewById(R.id.edtZipCode);
-        radioGroup = findViewById(R.id.radioGroup);
+//        radioGroup = findViewById(R.id.radioGroup);
         chineseBox = findViewById(R.id.chineseBox);
         japaneseBox = findViewById(R.id.japaneseBox);
         italianBox = findViewById(R.id.italianBox);
@@ -98,6 +99,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         btnClear = findViewById(R.id.btnClear);
         linearLayout1 = findViewById(R.id.linLayout1);
         linearLayout2 = findViewById(R.id.linLayout2);
+        openedNow = findViewById(R.id.openedNow);
 
         requestQueue = Volley.newRequestQueue(this);
 
@@ -160,12 +162,20 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         btnApply.setOnClickListener(v -> {
             int radioId = radioGroup.getCheckedRadioButtonId();
             opened = findViewById(radioId);
-            String openedNow = "true";
-            if (opened.getText().equals("Closed")) {
-                openedNow = "false";
+//            String openedNow = "true";
+//            if (opened.getText().equals("Closed")) {
+//                openedNow = "false";
+//            }
+
+            String isOpened;
+
+            if (openedNow.isChecked()) {
+                isOpened = "true";
+            } else {
+                isOpened = "false";
             }
 
-            jsonParse(milesRadius, edtZipCode.getText().toString(), openedNow, cuisines);
+            jsonParse(milesRadius, edtZipCode.getText().toString(), isOpened, cuisines);
         });
 
         clearButtonClicked();
