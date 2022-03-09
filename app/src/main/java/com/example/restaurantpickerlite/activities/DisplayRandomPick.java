@@ -147,7 +147,10 @@ public class DisplayRandomPick extends AppCompatActivity {
             }
         }
 
-        stringBuilder.append("&open_now=").append(opened);
+        if (opened.equals("true")) {
+            stringBuilder.append("&open_now=true");
+        }
+//        stringBuilder.append("&open_now=").append(opened);
 
         String url = stringBuilder.toString();
 

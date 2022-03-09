@@ -160,8 +160,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         });
 
         btnApply.setOnClickListener(v -> {
-            int radioId = radioGroup.getCheckedRadioButtonId();
-            opened = findViewById(radioId);
+//            int radioId = radioGroup.getCheckedRadioButtonId();
+//            opened = findViewById(radioId);
 //            String openedNow = "true";
 //            if (opened.getText().equals("Closed")) {
 //                openedNow = "false";
@@ -402,7 +402,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         }
 
-        stringBuilder.append("&open_now=").append(open);
+        if (open.equals("true")) {
+            stringBuilder.append("&open_now=").append(open);
+        }
 
         String url = stringBuilder.toString();
 
