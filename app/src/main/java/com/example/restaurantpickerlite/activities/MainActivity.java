@@ -73,6 +73,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spinnerMilesRadius = findViewById(R.id.spinnerMilesRadius);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.milesRadius, android.R.layout
                 .simple_spinner_item);
+
+//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.milesRadius, R.layout.spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerMilesRadius.setAdapter(adapter);
         spinnerMilesRadius.setOnItemSelectedListener(this);
