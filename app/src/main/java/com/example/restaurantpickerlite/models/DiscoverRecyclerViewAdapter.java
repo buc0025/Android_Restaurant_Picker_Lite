@@ -68,9 +68,11 @@ public class DiscoverRecyclerViewAdapter extends RecyclerView.Adapter<DiscoverRe
         holder.discoverRestaurantPhone.setText(currentItem.getPhone());
         holder.ratingBar.setRating((float) currentItem.getRating());
 
-        Picasso.get()
-                .load(currentItem.getRestaurantImage())
-                .into(holder.restaurantImage);
+        if (!currentItem.getRestaurantImage().equals("")) {
+            Picasso.get()
+                    .load(currentItem.getRestaurantImage())
+                    .into(holder.restaurantImage);
+        }
 
         holder.restaurantCardView.setOnClickListener(new View.OnClickListener() {
             @Override
