@@ -68,9 +68,14 @@ public class DiscoverRecyclerViewAdapter extends RecyclerView.Adapter<DiscoverRe
         holder.discoverRestaurantPhone.setText(currentItem.getPhone());
         holder.ratingBar.setRating((float) currentItem.getRating());
 
-        if (!currentItem.getRestaurantImage().equals("")) {
+        try {
             Picasso.get()
                     .load(currentItem.getRestaurantImage())
+                    .into(holder.restaurantImage);
+        } catch (Exception e) {
+            String unavailableImg = "https://eagle-sensors.com/wp-content/uploads/unavailable-image.jpg";
+            Picasso.get()
+                    .load(unavailableImg)
                     .into(holder.restaurantImage);
         }
 

@@ -210,10 +210,16 @@ public class DisplayRandomPick extends AppCompatActivity {
                             restaurantInfoCity.setText(cityStateZip);
                             restaurantInfoPhone.setText(phone);
 
-                            Picasso.get()
-                                    .load(url)
-//                                        .resize(600, 500)
-                                    .into(restaurantImg);
+                            try {
+                                Picasso.get()
+                                        .load(url)
+                                        .into(restaurantImg);
+                            } catch (Exception e) {
+                                String unavailableImg = "https://eagle-sensors.com/wp-content/uploads/unavailable-image.jpg";
+                                Picasso.get()
+                                        .load(unavailableImg)
+                                        .into(restaurantImg);
+                            }
 
                             RestaurantItem favoriteRestaurant = new RestaurantItem(name, address,
                                     city, zipcode, state, phone, url, website, rating);

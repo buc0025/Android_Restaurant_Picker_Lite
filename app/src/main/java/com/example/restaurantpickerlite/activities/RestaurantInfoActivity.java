@@ -56,13 +56,22 @@ public class RestaurantInfoActivity extends AppCompatActivity {
         directionsBtn = findViewById(R.id.directionsBtn);
         ratingBar = findViewById(R.id.ratingBar);
 
-        ratingBar.setRating((float) rating);
-
-        Picasso.get().load(url).into(restaurantInfoImg);
+        ratingBar.setRating((float) rating);        
         restaurantInfoName.setText(name);
         restaurantInfoAddress.setText(address);
         restaurantInfoCity.setText(cityStateZip);
         restaurantInfoPhone.setText(phone);
+
+        try {
+            Picasso.get()
+                    .load(url)
+                    .into(restaurantInfoImg);
+        } catch (Exception e) {
+            String unavailableImg = "https://eagle-sensors.com/wp-content/uploads/unavailable-image.jpg";
+            Picasso.get()
+                    .load(unavailableImg)
+                    .into(restaurantInfoImg);
+        }
 
         FavoritesManager favoritesManager = new FavoritesManager(RestaurantInfoActivity.this);
         RestaurantItem restaurantItem = new RestaurantItem(name, address, city, zipCode, state, phone, url, site, rating);
