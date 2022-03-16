@@ -56,7 +56,7 @@ public class RestaurantInfoActivity extends AppCompatActivity {
         directionsBtn = findViewById(R.id.directionsBtn);
         ratingBar = findViewById(R.id.ratingBar);
 
-        ratingBar.setRating((float) rating);        
+        ratingBar.setRating((float) rating);
         restaurantInfoName.setText(name);
         restaurantInfoAddress.setText(address);
         restaurantInfoCity.setText(cityStateZip);

@@ -68,9 +68,16 @@ public class FavoritesRecyclerViewAdapter extends RecyclerView.Adapter<Favorites
         holder.favoriteRestaurantPhone.setText(currentItem.getPhone());
         holder.ratingBar.setRating((float) currentItem.getRating());
 
-        Picasso.get()
-                .load(currentItem.getRestaurantImage())
-                .into(holder.restaurantImage);
+        try {
+            Picasso.get()
+                    .load(currentItem.getRestaurantImage())
+                    .into(holder.restaurantImage);
+        } catch (Exception e) {
+            String unavailableImg = "https://eagle-sensors.com/wp-content/uploads/unavailable-image.jpg";
+            Picasso.get()
+                    .load(unavailableImg)
+                    .into(holder.restaurantImage);
+        }
 
         holder.restaurantCardView.setOnClickListener(new View.OnClickListener() {
             @Override
