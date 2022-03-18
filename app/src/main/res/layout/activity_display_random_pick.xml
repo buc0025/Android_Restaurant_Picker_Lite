@@ -38,7 +38,8 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/restaurantInfoAddress"
@@ -49,7 +50,8 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/restaurantInfoCity"
@@ -60,7 +62,8 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/restaurantInfoPhone"
@@ -72,7 +75,8 @@
                 android:layout_marginTop="5dp"
                 android:textColor="@color/white"
                 android:textSize="20sp"
-                android:paddingBottom="10dp"/>
+                android:paddingBottom="10dp"
+                android:textStyle="bold"/>
 
             <RatingBar
                 android:id="@+id/ratingBar"
