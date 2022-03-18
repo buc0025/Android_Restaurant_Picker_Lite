@@ -37,8 +37,8 @@
                 android:text="restaurant name"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:textColor="@color/black"
-                android:textSize="15sp" />
+                android:textColor="@color/white"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/restaurantInfoAddress"
@@ -48,8 +48,8 @@
                 android:text="address"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
-                android:textColor="@color/black"
-                android:textSize="15sp" />
+                android:textColor="@color/white"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/restaurantInfoCity"
@@ -59,8 +59,8 @@
                 android:text="city"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
-                android:textColor="@color/black"
-                android:textSize="15sp" />
+                android:textColor="@color/white"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/restaurantInfoPhone"
@@ -70,8 +70,9 @@
                 android:text="phone"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
-                android:textColor="@color/black"
-                android:textSize="15sp" />
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:paddingBottom="10dp"/>
 
             <RatingBar
                 android:id="@+id/ratingBar"
@@ -80,6 +81,7 @@
                 android:layout_gravity="center"
                 android:isIndicator="true"
                 android:progressTint="@color/orange"
+                android:background="@color/white"
                 />
 
             <Button
