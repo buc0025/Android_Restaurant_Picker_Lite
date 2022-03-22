@@ -6,6 +6,7 @@
     app:cardCornerRadius="4dp"
     android:layout_marginBottom="4dp"
     android:id="@+id/restaurantCardView"
+    android:padding="10dp"
     android:backgroundTint="@color/orange">
 
     <RelativeLayout
@@ -42,6 +43,8 @@
             android:layout_height="wrap_content"
             android:text="address"
             android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
             android:layout_below="@+id/discoverRestaurantName"
             android:layout_toEndOf="@+id/spaceBetweenImg"
             android:layout_marginStart="8dp"/>
@@ -52,6 +55,8 @@
             android:layout_height="wrap_content"
             android:text="city"
             android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
             android:layout_below="@+id/discoverRestaurantAddress"
             android:layout_toEndOf="@+id/spaceBetweenImg"
             android:layout_marginStart="8dp"/>
@@ -62,6 +67,8 @@
             android:layout_height="wrap_content"
             android:text="phone"
             android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
             android:layout_below="@+id/discoverRestaurantCity"
             android:layout_toEndOf="@+id/spaceBetweenImg"
             android:layout_marginStart="8dp"/>
@@ -76,7 +83,7 @@
             android:layout_marginStart="8dp"
             android:layout_toEndOf="@+id/spaceBetweenImg"
             android:isIndicator="true"
-            android:progressTint="@color/orange" />
+            android:progressTint="@color/purple_700" />
 
     </RelativeLayout>
 
