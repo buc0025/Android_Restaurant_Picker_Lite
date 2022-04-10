@@ -363,6 +363,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 }
                 cuisines.clear();
                 edtZipCode.getText().clear();
+                openedNow.setChecked(false);
             }
         });
     }
